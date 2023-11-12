@@ -1,0 +1,49 @@
+.topnav {
+    overflow: hidden;
+    background-color: antiquewhite;
+}
+.topnav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.topnav a.active {
+    background-color: purple;
+    color: white;
+}
+.topnav input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+}
+body{
+    background-image: url("background1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+#heading{
+    color:antiquewhite;
+    font-size: 40px;
+    text-align: center;
+}
+.main{
+    color:antiquewhite;
+    font-size: 20px;
+    text-align: left;
+}
+.footer{
+    color:red;
+}
