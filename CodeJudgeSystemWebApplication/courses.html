@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            width: 100%;
+            background-color: #f1f1f1;
+        }
+
+        .bar-container {
+            width: 100%;
+            height: 30px;
+            background-color: #ccc;
+            margin-top: 15px;
+        }
+
+        .bar {
+            height: 30px;
+            background-color: #4CAF50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .subject {
+            background-color: #f1f1f1;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 30%;
+        }
+
+            .subject:hover {
+                background-color: #ddd;
+            }
+
+        .progress-bar {
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Six Subjects</h1>
+    <div class="container">
+        <h2>Subject 1</h2>
+        <h2>Subject 2</h2>
+        <h2>Subject 3</h2>
+        <h2>Subject 4</h2>
+        <h2>Subject 5</h2>
+        <h2>Subject 6</h2>
+    </div>
+
+    <h2>Submit Your Assignment</h2>
+    <form action="/submit_assignment" method="post" enctype="multipart/form-data">
+        <label for="file">Select your file:</label><br>
+        <input type="file" id="file" name="file"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <div class="bar-container">
+        <div class="bar" style="width:66.66666666666667%">6 of 6 Subjects Submitted</div>
+    </div>
+
+    <h1>Select a Subject</h1>
+    <div class="container">
+        <div class="subject" onclick="window.location.href='subject1.html'">
+            <h2>Subject 1</h2>
+            <div class="progress-bar">
+                <div class="progress" style="width: 50%"></div>
+            </div>
+        </div>
+        <div class="subject" onclick="window.location.href='subject2.html'">
+            <h2>Subject 2</h2>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

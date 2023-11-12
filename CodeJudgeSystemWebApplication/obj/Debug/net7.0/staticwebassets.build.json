@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "Hash": "ZtZ4K+wfCWhy4YPqKfr4arPCLMPKD5rQwSES9tw3ZVw=",
+  "Source": "CodeJudgeSystemWebApplication",
+  "BasePath": "_content/CodeJudgeSystemWebApplication",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CodeJudgeSystemWebApplication\\wwwroot",
+      "Source": "CodeJudgeSystemWebApplication",
+      "ContentRoot": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\",
+      "BasePath": "_content/CodeJudgeSystemWebApplication",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\site.css",
+      "SourceId": "CodeJudgeSystemWebApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\",
+      "BasePath": "_content/CodeJudgeSystemWebApplication",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\index.html",
+      "SourceId": "CodeJudgeSystemWebApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\",
+      "BasePath": "_content/CodeJudgeSystemWebApplication",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\js\\site.js",
+      "SourceId": "CodeJudgeSystemWebApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\",
+      "BasePath": "_content/CodeJudgeSystemWebApplication",
+      "RelativePath": "js/site.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\site.js"
+    }
+  ]
+}

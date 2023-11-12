@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.CodeJudgeSystemWebApplication.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.CodeJudgeSystemWebApplication.props",
+      "PackagePath": "build\\CodeJudgeSystemWebApplication.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.CodeJudgeSystemWebApplication.props",
+      "PackagePath": "buildMultiTargeting\\CodeJudgeSystemWebApplication.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.CodeJudgeSystemWebApplication.props",
+      "PackagePath": "buildTransitive\\CodeJudgeSystemWebApplication.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

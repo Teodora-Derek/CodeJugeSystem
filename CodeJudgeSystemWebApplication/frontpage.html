@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>School Moodle</title>
+    <style>
+        h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 36px;
+            font-weight: bold;
+            color: #4CAF50;
+            text-align: center;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="heading">School Moodle</h1>
+        </div>
+        <div class="content">
+            <div class="left-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="main">
+                <h2>Welcome to School Moodle</h2>
+                <p>Задача качи код:</p>
+
+                <h2>Submit a File</h2>
+                <form action="/submit-file" method="post" enctype="multipart/form-data">
+                    <label for="fileToUpload">Select a file to upload:</label><br>
+                    <input type="file" id="fileToUpload" name="fileToUpload" required><br>
+                    <input type="submit" value="Submit" name="submit">
+                </form>
+                <ul>
+                    <li>Online course management system</li>
+                    <li>Personalized learning and teaching experience</li>
+                    <li>User-friendly interface</li>
+                    <li>Role-based access control</li>
+                    <li>Flexible and scalable architecture</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; 2023 School Moodle. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

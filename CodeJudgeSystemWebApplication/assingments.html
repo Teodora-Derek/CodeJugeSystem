@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .input-box {
+            margin-top: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Assignment 1</h1>
+    <p>Objective: To create a web page that takes user input and processes it accordingly.</p>
+    <p>Description: Develop a web page with a form that allows the user to input their name and email address. Upon submitting the form, display a confirmation message.</p>
+
+    <h2>Time to finish: 2 hours</h2>
+
+    <div class="input-box">
+        <form action="/submit_assignment" method="post" enctype="multipart/form-data">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email"><br>
+            <label for="file">Upload your assignment:</label><br>
+            <input type="file" id="file" name="file"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+
+</html>
