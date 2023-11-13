@@ -1,60 +1,28 @@
 ﻿<!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>School Moodle</title>
-    <style>
-        h1 {
-            font-family: 'Arial', sans-serif;
-            font-size: 36px;
-            font-weight: bold;
-            color: #4CAF50;
-            text-align: center;
-            padding: 10px;
-            background-color: #f7f7f7;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <link href="contact.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
 </head>
-
 <body>
-<div class="container">
-    <div class="header">
-        <h1 id="heading">School Moodle</h1>
-    </div>
-    <div class="content">
-        <div class="left-nav">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Courses</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <div class="main">
-            <h2>Welcome to School Moodle</h2>
-            <p>Задача качи код:</p>
-
-            <h2>Submit a File</h2>
-            <form action="/submit-file" method="post" enctype="multipart/form-data">
-                <label for="fileToUpload">Select a file to upload:</label><br>
-                <input type="file" id="fileToUpload" name="fileToUpload" required><br>
-                <input type="submit" value="Submit" name="submit">
-            </form>
-            <ul>
-                <li>Online course management system</li>
-                <li>Personalized learning and teaching experience</li>
-                <li>User-friendly interface</li>
-                <li>Role-based access control</li>
-                <li>Flexible and scalable architecture</li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer">
-        <p>&copy; 2023 School Moodle. All rights reserved.</p>
-    </div>
+<div class="header">
+    <h1 style="font-size: 40px">Administration and Help</h1>
+    <p style="font-size: 30px">We will be glad to help any way we can</p>
+</div>
+<div class="question-box">
+    <h2 style="color: darkgreen">For uploading problems, please text us here</h2>
+    <label>
+        <textarea placeholder="Type your question here" rows="6" required></textarea>
+    </label>
+    <button type="submit">Submit</button>
+</div>
+<div class="contacts">
+    <h2>Contacts:</h2>
+    <p>Address: Sofia, Lyulin 6, Blok 636, Vhod A, Etazh 10, Apartament 55</p>
+    <p>E-mail: www.schoolmoodle.gmail.com</p>
+    <p>Phone number: 0885 68 54 89</p>
 </div>
 </body>
 </html>
