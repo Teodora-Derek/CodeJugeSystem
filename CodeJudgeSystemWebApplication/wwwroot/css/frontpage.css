@@ -7,34 +7,34 @@
     background-color: antiquewhite;
 }
 
-.topnav a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
+    .topnav a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
 
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
 
-.topnav a.active {
-    background-color: purple;
-    color: white;
-}
+        .topnav a.active {
+            background-color: purple;
+            color: white;
+        }
 
-.topnav input[type=text] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
-}
+    .topnav input[type=text] {
+        float: right;
+        padding: 6px;
+        border: none;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 17px;
+    }
 
 body {
     background-image: url("background1.jpg");
@@ -83,9 +83,9 @@ input[type=submit] {
     float: right;
 }
 
-input[type=submit]:hover {
-    background-color: #45a049;
-}
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
 
 .container {
     border-radius: 5px;
@@ -118,21 +118,19 @@ input[type=submit]:hover {
 }
 
 ul {
-
     list-style-type: none;
 }
 
-}
-ul li:before {
-    content: '';
-    display: inline-block;
-    height: 10px;
-    width: 10px;
-    background-size: 10px;
-    background-image: url("http://www.freepngimg.com/thumb/star/1-red-star-png-image-thumb.png");
-    background-repeat: no-repeat;
-    margin-right: 5px;
-}
+    ul li:before {
+        content: '';
+        display: inline-block;
+        height: 10px;
+        width: 10px;
+        background-size: 10px;
+        background-image: url("http://www.freepngimg.com/thumb/star/1-red-star-png-image-thumb.png");
+        background-repeat: no-repeat;
+        margin-right: 5px;
+    }
 
 .listitems {
     font-style: italic;
@@ -155,10 +153,10 @@ ul li:before {
     text-align: center;
 }
 
-.custom-file-upload:hover {
-    background: #3498db;
-    color: #fff;
-}
+    .custom-file-upload:hover {
+        background: #3498db;
+        color: #fff;
+    }
 
 input[type="file"] {
     display: none;

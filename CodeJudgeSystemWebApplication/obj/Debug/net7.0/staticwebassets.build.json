@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZtZ4K+wfCWhy4YPqKfr4arPCLMPKD5rQwSES9tw3ZVw=",
+  "Hash": "qId5CN7byTtVb+sXDlfpT67leLfW4jNIN7tiWO6Wt/8=",
   "Source": "CodeJudgeSystemWebApplication",
   "BasePath": "_content/CodeJudgeSystemWebApplication",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\frontpage.css",
       "SourceId": "CodeJudgeSystemWebApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\",
       "BasePath": "_content/CodeJudgeSystemWebApplication",
-      "RelativePath": "css/site.css",
+      "RelativePath": "css/frontpage.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,7 +31,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\site.css"
+      "OriginalItemSpec": "wwwroot\\css\\frontpage.css"
     },
     {
       "Identity": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\index.html",
@@ -51,12 +51,12 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\js\\frontpage.js",
       "SourceId": "CodeJudgeSystemWebApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\",
       "BasePath": "_content/CodeJudgeSystemWebApplication",
-      "RelativePath": "js/site.js",
+      "RelativePath": "js/frontpage.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -65,7 +65,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\site.js"
+      "OriginalItemSpec": "wwwroot\\js\\frontpage.js"
     }
   ]
 }

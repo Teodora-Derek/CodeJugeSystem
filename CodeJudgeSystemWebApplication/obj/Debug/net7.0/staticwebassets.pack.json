@@ -1,16 +1,16 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\frontpage.css",
+      "PackagePath": "staticwebassets\\css\\frontpage.css"
     },
     {
       "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\js\\frontpage.js",
+      "PackagePath": "staticwebassets\\js\\frontpage.js"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.CodeJudgeSystemWebApplication.Microsoft.AspNetCore.StaticWebAssets.props",
