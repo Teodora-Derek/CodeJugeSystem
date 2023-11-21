@@ -1,0 +1,38 @@
+.header{
+    text-align: center;
+    font-style: italic;
+    font-size: 25px;
+    text-shadow: 1px 1px #27ae60;
+}
+.info{
+    font-size: 20px;
+    font-style: oblique;
+}
+em{
+    color: red;
+}
+body{
+    background-image: url("courses-wallpaper.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+.container {
+    display: flex;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-image: url("courses-wallpaper.jpg");
+    border: 5px solid darkgreen;
+    border-radius: 10px;
+    text-align: center;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 200px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin-right: 50px;
+}

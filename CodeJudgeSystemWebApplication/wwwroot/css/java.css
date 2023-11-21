@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+    font-style: italic;
+    font-size: 40px;
+    text-shadow: 1px 1px #27ae60;
+}
+body{
+    background-image: url("courses-wallpaper.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+.lectures{
+    text-align: left;
+    font-style: italic;
+    font-size: 40px;
+    text-shadow: 1px 1px #27ae60;
+}

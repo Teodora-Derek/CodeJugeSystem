@@ -1,0 +1,49 @@
+.header{
+    text-align: center;
+    font-style: italic;
+    color: #ff8d00;
+}
+body{
+    background-image: url("admin.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+.contacts{
+    text-align: right;
+    font-style: italic;
+    color: #ff8d00;
+    font-size: 23px;
+}
+.question-box {
+    background-color: #ff8d00;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 400px;
+    text-align: center;
+}
+.question-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+.question-box textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+.question-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(1, 159, 255, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
