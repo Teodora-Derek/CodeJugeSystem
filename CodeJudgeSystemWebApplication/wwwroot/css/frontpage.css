@@ -37,7 +37,7 @@
     }
 
 body {
-    background-image: url("background1.jpg");
+    background-image: url("../Pictures/background1.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -127,7 +127,7 @@ ul {
         height: 10px;
         width: 10px;
         background-size: 10px;
-        background-image: url("http://www.freepngimg.com/thumb/star/1-red-star-png-image-thumb.png");
+        background-image: url("../Pictures/red-star.png");
         background-repeat: no-repeat;
         margin-right: 5px;
     }

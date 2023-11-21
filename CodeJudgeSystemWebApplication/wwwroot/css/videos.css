@@ -1,5 +1,5 @@
 body{
-    background-image: url("courses-wallpaper.jpg");
+    background-image: url("../Pictures/courses-wallpaper.jpg");
     background-repeat: repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -18,7 +18,7 @@ body{
 .box {
     width: 200px;
     height: 200px;
-    background-image: url("courses-wallpaper.jpg");
+    background-image: url("../Pictures/courses-wallpaper.jpg");
     border: 5px solid darkgreen;
     border-radius: 10px;
     text-align: center;

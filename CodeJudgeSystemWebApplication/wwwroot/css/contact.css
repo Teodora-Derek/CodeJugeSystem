@@ -4,7 +4,7 @@
     color: #ff8d00;
 }
 body{
-    background-image: url("admin.jpg");
+    background-image: url("../Pictures/admin.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

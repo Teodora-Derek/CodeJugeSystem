@@ -5,7 +5,7 @@ h1{
     text-shadow: 1px 1px #27ae60;
 }
 body{
-    background-image: url("courses-wallpaper.jpg");
+    background-image: url("../Pictures/courses-wallpaper.jpg");
     background-repeat: repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -16,4 +16,5 @@ body{
     font-style: italic;
     font-size: 40px;
     text-shadow: 1px 1px #27ae60;
+    padding-top: 5em;
 }

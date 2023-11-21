@@ -1,16 +1,208 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pdf-files\\lecture-1.1.pdf",
+      "PackagePath": "staticwebassets\\Pdf-files\\lecture-1.1.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pdf-files\\lecture-1.pdf",
+      "PackagePath": "staticwebassets\\Pdf-files\\lecture-1.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pdf-files\\lecture-2.2.pdf",
+      "PackagePath": "staticwebassets\\Pdf-files\\lecture-2.2.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pdf-files\\lecture-2.pdf",
+      "PackagePath": "staticwebassets\\Pdf-files\\lecture-2.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pdf-files\\lecture-3.3.pdf",
+      "PackagePath": "staticwebassets\\Pdf-files\\lecture-3.3.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pdf-files\\lecture-3.pdf",
+      "PackagePath": "staticwebassets\\Pdf-files\\lecture-3.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pdf-files\\lecture-4.4.pdf",
+      "PackagePath": "staticwebassets\\Pdf-files\\lecture-4.4.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pdf-files\\lecture-4.pdf",
+      "PackagePath": "staticwebassets\\Pdf-files\\lecture-4.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pdf-files\\lecture-5.5.pdf",
+      "PackagePath": "staticwebassets\\Pdf-files\\lecture-5.5.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pdf-files\\lecture-5.pdf",
+      "PackagePath": "staticwebassets\\Pdf-files\\lecture-5.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pictures\\admin.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\admin.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pictures\\background1.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\background1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pictures\\building.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\building.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pictures\\courses-wallpaper.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\courses-wallpaper.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pictures\\favicon.png",
+      "PackagePath": "staticwebassets\\Pictures\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pictures\\red-star.png",
+      "PackagePath": "staticwebassets\\Pictures\\red-star.png"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pictures\\welcome.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\welcome.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Pictures\\wishyouluck.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\wishyouluck.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Videos\\c_sharp-video-1.mp4",
+      "PackagePath": "staticwebassets\\Videos\\c_sharp-video-1.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Videos\\c_sharp-video-2.mp4",
+      "PackagePath": "staticwebassets\\Videos\\c_sharp-video-2.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Videos\\c_sharp-video-3.mp4",
+      "PackagePath": "staticwebassets\\Videos\\c_sharp-video-3.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Videos\\c_sharp-video-4.mp4",
+      "PackagePath": "staticwebassets\\Videos\\c_sharp-video-4.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Videos\\c_sharp-video-5.mp4",
+      "PackagePath": "staticwebassets\\Videos\\c_sharp-video-5.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Videos\\java-video-1.mp4",
+      "PackagePath": "staticwebassets\\Videos\\java-video-1.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Videos\\java-video-2.mp4",
+      "PackagePath": "staticwebassets\\Videos\\java-video-2.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Videos\\java-video-3.mp4",
+      "PackagePath": "staticwebassets\\Videos\\java-video-3.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Videos\\java-video-4.mp4",
+      "PackagePath": "staticwebassets\\Videos\\java-video-4.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\Videos\\java-video-5.mp4",
+      "PackagePath": "staticwebassets\\Videos\\java-video-5.mp4"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\c_sharp.html",
+      "PackagePath": "staticwebassets\\c_sharp.html"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\c_sharp_videos.html",
+      "PackagePath": "staticwebassets\\c_sharp_videos.html"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\contact.html",
+      "PackagePath": "staticwebassets\\contact.html"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\courses.html",
+      "PackagePath": "staticwebassets\\courses.html"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\c_sharp-videos.css",
+      "PackagePath": "staticwebassets\\css\\c_sharp-videos.css"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\c_sharp.css",
+      "PackagePath": "staticwebassets\\css\\c_sharp.css"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\contact.css",
+      "PackagePath": "staticwebassets\\css\\contact.css"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\courses.css",
+      "PackagePath": "staticwebassets\\css\\courses.css"
+    },
+    {
       "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\frontpage.css",
       "PackagePath": "staticwebassets\\css\\frontpage.css"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\java-videos.css",
+      "PackagePath": "staticwebassets\\css\\java-videos.css"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\java.css",
+      "PackagePath": "staticwebassets\\css\\java.css"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\pdf-lectures.css",
+      "PackagePath": "staticwebassets\\css\\pdf-lectures.css"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\sign-up.css",
+      "PackagePath": "staticwebassets\\css\\sign-up.css"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\css\\videos.css",
+      "PackagePath": "staticwebassets\\css\\videos.css"
     },
     {
       "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\java-videos.html",
+      "PackagePath": "staticwebassets\\java-videos.html"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\java.html",
+      "PackagePath": "staticwebassets\\java.html"
+    },
+    {
       "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\js\\frontpage.js",
       "PackagePath": "staticwebassets\\js\\frontpage.js"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\login.html",
+      "PackagePath": "staticwebassets\\login.html"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\pdf-lectures.html",
+      "PackagePath": "staticwebassets\\pdf-lectures.html"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\sign-up.html",
+      "PackagePath": "staticwebassets\\sign-up.html"
+    },
+    {
+      "Id": "C:\\Users\\Teodora Derek\\source\\repos\\C#Important\\CodeJudgeSystemWebApplication\\CodeJudgeSystemWebApplication\\wwwroot\\videos.html",
+      "PackagePath": "staticwebassets\\videos.html"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.CodeJudgeSystemWebApplication.Microsoft.AspNetCore.StaticWebAssets.props",
