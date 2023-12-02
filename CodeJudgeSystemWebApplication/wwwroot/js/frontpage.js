@@ -1,7 +1,9 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+﻿
+//Post the files to the controller
+document.addEventListener('DOMContentLoaded', function () {
     // Wait for the DOM content to be fully loaded
 
-    const form = document.querySelector('form'); // Assuming you have only one form on the page
+    const form = document.querySelector('form');
 
     form.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the default form submission
@@ -10,7 +12,7 @@
         const formData = new FormData(form);
 
         // Make a POST request to your ASP.NET Core Web API endpoint
-        fetch('https://your-api-endpoint.com/upload', {
+        fetch('https://localhost:7015/upload', {
             method: 'POST',
             body: formData,
         })

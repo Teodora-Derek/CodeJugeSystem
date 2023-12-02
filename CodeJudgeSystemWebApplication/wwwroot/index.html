@@ -12,6 +12,7 @@
         <a class="active" href="./index.html">Home</a>
         <a href="./courses.html">Courses</a>
         <a href="./contact.html">Contact</a>
+        <a href="./submitCode.html">Submit Code</a>
     </div>
     <div class="cont">
         <div class="header">
@@ -26,48 +27,6 @@
             <div>
                 <p style="color: red"><i>NOTE!</i></p>
                 <p>The system is fully automated, no teacher will check your code.</p>
-            </div>
-            <div class="container">
-                <form action="/upload">
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="fname">First Name</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" id="fname" name="firstname" placeholder="Your name...">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="lname">Last Name</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" id="lname" name="lastname" placeholder="Your last name...">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="subject">Subject</label>
-                        </div>
-                        <div class="col-75">
-                            <textarea id="subject" name="subject" placeholder="Write something..." style="height:200px"></textarea>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
-            </div>
-            <p>If you encounter difficulties by uploading direct text, below is an option to upload a file</p>
-            <div class="upload-container">
-                <form action="/upload" method="post" enctype="multipart/form-data">
-                    <label for="file" class="custom-file-upload">
-                        <i class="fas fa-cloud-upload-alt"></i> Select a file to upload
-                    </label>
-                    <input type="file" id="file" name="file">
-                    <input class="upload-button" type="submit" value="Upload">
-                </form>
             </div>
             <ul>
                 <li class="listitems">Online course management system</li>
