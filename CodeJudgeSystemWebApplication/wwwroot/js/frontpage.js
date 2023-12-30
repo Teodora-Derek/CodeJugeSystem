@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Make a POST request to your ASP.NET Core Web API endpoint
         fetch('https://localhost:7015/upload', {
             method: 'POST',
-            body: formData,
+            body: formData ,
         })
             .then(response => {
                 if (!response.ok) {

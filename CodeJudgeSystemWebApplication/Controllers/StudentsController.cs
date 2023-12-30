@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CodeJudgeSystemWebApplication.Models;
+using CodeJudgeSystemWebApplication.AppModels;
 
 namespace CodeJudgeSystemWebApplication.Controllers;
 
@@ -73,7 +74,7 @@ public class StudentsController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<StudentDTO>> PostStudent(StudentDTO studentDTO)
     {
-        var student = new Student
+        var student = new StudentModel
         {
             FirstName = studentDTO.FirstName,
             LastName = studentDTO.LastName,
@@ -115,7 +116,7 @@ public class StudentsController : ControllerBase
         return _context.Students.Any(e => e.FacultyNumber == id);
     }
 
-    private static StudentDTO StudentToDTO(Student student) =>
+    private static StudentDTO StudentToDTO(StudentModel student) =>
        new StudentDTO
        {
            FirstName = student.FirstName,

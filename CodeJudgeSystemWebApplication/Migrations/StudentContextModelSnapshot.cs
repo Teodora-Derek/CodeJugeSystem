@@ -18,7 +18,7 @@ namespace CodeJudgeSystemWebApplication.Migrations
                 .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("CodeJudgeSystemWebApplication.Models.Student", b =>
+            modelBuilder.Entity("CodeJudgeSystemWebApplication.Models.StudentModel", b =>
                 {
                     b.Property<string>("FacultyNumber")
                         .ValueGeneratedOnAdd()

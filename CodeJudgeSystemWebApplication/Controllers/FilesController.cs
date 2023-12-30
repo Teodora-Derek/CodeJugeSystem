@@ -12,6 +12,8 @@ using System.Reflection;
 using Microsoft.CodeAnalysis.Text;
 using System.IO;
 using CodeJudgeSystemWebApplication.Services;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using CodeJudgeSystemWebApplication.AppModels;
 
 namespace CodeJudgeSystemWebApplication.Controllers
 {
@@ -44,8 +46,14 @@ namespace CodeJudgeSystemWebApplication.Controllers
                 return NotFound();
             }
 
-            // Assuming the entry data is in base64 format for simplicity
-            byte[]? fileData = file.FileData;
+            return Ok(new
+            {
+                FileName = file.FileName,
+                FileExtention = file.FileExtention,
+                UploadTime = file.UploadTime
+            });
+
+            /*byte[]? fileData = file.FileData;
             if (fileData == null)
             {
                 return BadRequest("Files data is empty!");
@@ -55,18 +63,42 @@ namespace CodeJudgeSystemWebApplication.Controllers
             return Ok(new
             {
                 FileName = file.FileName,
-                FileType = file.FileType,
-                FileData = base64EncodedData
-            });
+                FileType = file.FileExtention,
+                FileData = base64EncodedData,
+                UploadTime = file.UploadTime
+            });*/
         }
 
         [HttpPost("upload")]
-        public async Task<IActionResult> Upload(IOptions<AppOptions> optAppOptions, [FromForm] FileUploadModel model)
+        public async Task<IActionResult> Upload(IOptions<AppOptions> optAppOptions, [FromForm] FileModelDTO model)
         {
+            var file = new FileModel
+            {
+                FileName = model.File.FileName,
+                FileExtention = Path.GetExtension(model.File.FileName),
+                UploadTime = DateTime.Now,
+            };
+
+            _context.Files.Add(file);
+            await _context.SaveChangesAsync();
+
+            var fileUploadResult = await Task.Run(() => _fileService.RunFileDynamically(model.File));
+            var fileSaveResult = await _fileService.SaveFileInFileSystemAsync(optAppOptions.Value.UnzipFolderPath, model.File);
+
+            if (fileUploadResult.IsSuccessful && fileSaveResult)
+                return Ok(fileUploadResult.Result);
+
+            var problem = ((object?)fileUploadResult.Diagnostics
+                    ?? fileUploadResult.Exception)
+                    ?? fileUploadResult.Error;
+
+            return BadRequest(problem);
+
+            /*
             var appOptions = optAppOptions.Value;
 
             var isSavedTask = _fileService.SaveFileInFileSystemAsync(appOptions.UnzipFolderPath, model.File);
-            var isExecutedTask = _fileService.RunFileDynamicallyAsync(model.File);
+            var isExecutedTask = _fileService.RunFileDynamically(model.File);
 
             await Task.WhenAll(isSavedTask, isExecutedTask);
 
@@ -83,67 +115,7 @@ namespace CodeJudgeSystemWebApplication.Controllers
 
             return error == string.Empty
                 ? Ok()
-                : BadRequest(error);
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> Upload(IOptions<AppOptions> optAppOptions, byte[] zip)
-        {
-            try
-            {
-                var appOptions = optAppOptions.Value;
-
-                using (var ms = new MemoryStream(zip))
-                {
-                    var zipArchive = new ZipArchive(ms);
-
-                    var references = AppDomain.CurrentDomain.GetAssemblies()
-                        .Where(a => !a.IsDynamic && !string.IsNullOrEmpty(a.Location))
-                        .Select(a => MetadataReference.CreateFromFile(a.Location))
-                        .ToList();
-
-                    var compilation = CSharpCompilation.Create("MyDynamicCompilation",
-                        syntaxTrees: zipArchive.Entries.Select(entry => CSharpSyntaxTree.ParseText(SourceText.From(entry.Open()))),
-                        references: references,
-                        options: new CSharpCompilationOptions(OutputKind.ConsoleApplication));
-
-                    EmitResult result = compilation.Emit(ms);
-
-                    if (!result.Success)
-                    {
-                        var failures = result.Diagnostics
-                            .Where(diagnostic => diagnostic.IsWarningAsError || diagnostic.Severity == DiagnosticSeverity.Error);
-
-                        foreach (var diagnostic in failures)
-                        {
-                            Console.Error.WriteLine($"{diagnostic.Id}: {diagnostic.GetMessage()}");
-                        }
-                    }
-                    else
-                    {
-                        // Step 4: Execute the application
-                        ms.Seek(0, SeekOrigin.Begin);
-                        var assembly = Assembly.Load(ms.ToArray());
-
-                        // Find the entry point
-                        var entryPoint = assembly.EntryPoint;
-                        if (entryPoint != null)
-                        {
-                            // Create parameters if needed
-                            object[]? parameters = entryPoint.GetParameters().Length == 0 ? null : new object[] { new string[] { } };
-
-                            // Invoke the entry point
-                            entryPoint.Invoke(null, parameters);
-                        }
-                    }
-                }
-                return Ok("Server said: Files uploaded successfully");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
+                : BadRequest(error);*/
         }
     }
 }

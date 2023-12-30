@@ -62,85 +62,41 @@ function removeFile(fileToRemove) {
 
 /*-------------------- User side(top) / Server side(bottom) -------------------*/
 
-const url = 'api/Files';
+const url = 'api/Files/upload';
 
-// Upload a file
 function uploadFiles() {
-    console.log('Uploading files:', files);
-    console.log('files.length: ', files.length);
-    if (files.length > 0) {
-        var formData = new FormData();
 
-        // Append each selected file to the FormData object
-        for (var i = 0; i < files.length; i++) {
-            formData.append('files', files[i]);
-        }
-
-        fetch(url, {
-            method: 'POST',
-            body: formData,
-        })
-            .then(response => {
-                const contentType = response.headers.get('content-type');
-                console.log('Content-Type:', contentType);
-
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                // Assuming the server returns the .cs file content as plain text
-                return response.text();
-            })
-            .then(data => {
-                // Handle the successful response from the server
-                console.log('File uploaded successfully!', data);
-                // You can now process the file content as needed (e.g., store it in the database)
-            })
-            .catch(error => {
-                console.error('Error during file upload:', error);
-            });
-    } else {
-        console.error('No files selected.');
+    if (files.length <= 0) {
+        //TODO: Show message to the user in the form!
+        console.log('Please, select file first!');
     }
+
+    const formData = new FormData();
+
+    for (var i = 0; i < files.length; i++) {
+        formData.append('File', files[i]);
+    }
+
+    fetch(url, {
+        method: 'POST',
+        body: formData,
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('File upload failed. Status: ' + response.status);
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log('File uploaded successfully!', data);
+            // Tell the user the data is saved successfuly
+            updateHistory();
+        })
+        .catch(error => {
+            console.error('Error during file upload:', error);
+        });
 }
 
-//const url = 'api/Files';
-
-//// Upload a file
-//function uploadFile() {
-
-//    if (files.length > 0) {
-//        var formData = new FormData();
-
-//        // Append each selected file to the FormData object
-//        for (var i = 0; i < files.length; i++) {
-//            formData.append('files[]', files[i]);
-//        }
-
-//        var xhr = new XMLHttpRequest();
-//        xhr.open('POST', url, true);
-
-//        xhr.onreadystatechange = function () {
-//            if (xhr.readyState === 4 && xhr.status === 200) {
-//                // Handle the successful response from the server
-//                console.log('Files uploaded successfully!');
-//            }
-//        };
-
-//        xhr.upload.onprogress = function (e) {
-//            if (e.lengthComputable) {
-//                var percentage = (e.loaded / e.total) * 100;
-//                console.log('Upload progress: ' + percentage + '%');
-//            }
-//        };
-
-//        // Send the FormData object containing the files to the server
-//        xhr.send(formData);
-//    } else {
-//        console.error('No files selected.');
-//    }
-//}
-
-// Get the files by id
 function getFiles() {
     fetch(url)
         .then(response => response.json())
@@ -151,3 +107,17 @@ function getFiles() {
             console.error('Error making GET request', error);
         });
 }
+
+function updateHistory() {
+    // Assuming you have a div with the id "uploadHistory" to display the history
+    const uploadHistoryDiv = document.getElementById('uploadHistory');
+
+    // Assuming history is an array of objects with DocumentID, FileName, and UploadTime properties
+    history.forEach(item => {
+        const historyItem = document.createElement('div');
+        historyItem.textContent = `DocumentID: ${item.documentID}, FileName: ${item.fileName}, UploadTime: ${item.uploadTime}`;
+        uploadHistoryDiv.appendChild(historyItem);
+    });
+}
+
+window.addEventListener('load', updateHistory);
