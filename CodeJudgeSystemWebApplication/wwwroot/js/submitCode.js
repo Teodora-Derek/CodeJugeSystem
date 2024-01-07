@@ -1,83 +1,39 @@
-﻿let files = [];
+﻿const input = document.getElementById('file-input');
+const fileName = document.createElement('p');
 
-function updateFilePreview() {
-    console.log('files in top of update: ', files);
-    const input = document.getElementById('files');
-    const previewContainer = document.getElementById('file-preview');
-    const selectedFilesTextArea = document.getElementById('selected-files');
+const updateFilePreview = () => {
+    const file = input.files[0];
 
-    // Clear previous previews
-    previewContainer.innerHTML = '';
-
-    for (let i = 0; i < input.files.length; i++) {
-        const file = input.files[i];
-
-        // Create a div for each file preview
-        const filePreview = document.createElement('div');
-        filePreview.className = 'file-preview';
-
-        console.log('File size: ', file.size);
-
-        // Create a div for file information
-        const fileInfo = document.createElement('div');
-        fileInfo.className = 'file-info';
-
-        // Create a span for the file name
-        const fileName = document.createElement('span');
+    if (file) {
+        console.log('Selected file:', file);
         fileName.textContent = file.name;
-
-        // Create a "Remove" button
-        const removeButton = document.createElement('span');
-        removeButton.className = 'remove-btn';
-        removeButton.textContent = 'Remove';
-        removeButton.onclick = () => removeFile(file);
-
-        // Append elements to the preview container
-        fileInfo.appendChild(fileName);
-        filePreview.appendChild(fileInfo);
-        filePreview.appendChild(removeButton);
-        previewContainer.appendChild(filePreview);
-
-        console.log('files before insertion: ', files);
-        // Add the file to the files array if it's not already present
-        if (!files.some(existingFile => existingFile.name === file.name)) {
-            files.push(file);
-        }
-        console.log('files after insertion: ', files);
     }
-
-    // Update the files textarea
-    selectedFilesTextArea.value = files.map(file => file.name).join('\n');
-    console.log('selectedFilesTextArea.value: ', selectedFilesTextArea.value);
 }
 
-function removeFile(fileToRemove) {
-    // Remove the file from the files array based on the file name
-    files = files.filter(existingFile => existingFile.name !== fileToRemove.name);
-    console.log('filtered files: ', files);
+const removeFile = () => {
+    const file = input.files[0];
 
-    // Update the file preview
-    updateFilePreview();
+    if (file) {
+        input.textContent = 'No file selected';
+    }
 }
 
 /*-------------------- User side(top) / Server side(bottom) -------------------*/
 
-const url = 'api/Files/upload';
+const uploadFilesUrl = 'api/Files/upload';
+const getFilesUrl = 'api/Files/';
 
-function uploadFiles() {
-
-    if (files.length <= 0) {
-        //TODO: Show message to the user in the form!
-        console.log('Please, select file first!');
+const uploadFiles = () => {
+    const file = input.files[0];
+    if (!file) {
+        alert('Please, select file first!');
+        return;
     }
 
     const formData = new FormData();
+    formData.append('File', file);
 
-    for (var i = 0; i < files.length; i++) {
-        formData.append('File', files[i]);
-    }
-
-    fetch(url, {
+    fetch(uploadFilesUrl, {
         method: 'POST',
         body: formData,
     })
@@ -89,7 +45,6 @@ function uploadFiles() {
         })
         .then(data => {
             console.log('File uploaded successfully!', data);
-            // Tell the user the data is saved successfuly
             updateHistory();
         })
         .catch(error => {
@@ -97,27 +52,28 @@ function uploadFiles() {
         });
 }
 
-function getFiles() {
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            console.log('GET request succeeded with JSON response', data);
-        })
-        .catch(error => {
-            console.error('Error making GET request', error);
-        });
-}
+const updateHistory = async () => {
 
-function updateHistory() {
-    // Assuming you have a div with the id "uploadHistory" to display the history
-    const uploadHistoryDiv = document.getElementById('uploadHistory');
+    const historyContent = document.getElementById('historyContent');
+    const SUBMISSIONS_SHOWN = 10;
 
-    // Assuming history is an array of objects with DocumentID, FileName, and UploadTime properties
-    history.forEach(item => {
-        const historyItem = document.createElement('div');
-        historyItem.textContent = `DocumentID: ${item.documentID}, FileName: ${item.fileName}, UploadTime: ${item.uploadTime}`;
-        uploadHistoryDiv.appendChild(historyItem);
-    });
+    try {
+        historyContent.innerHTML = "";
+        const response = await fetch(getFilesUrl);
+        const result = await response.json();
+
+        console.log(result);
+
+        for (let i = 0; i < Math.min(result.length, SUBMISSIONS_SHOWN); i++) {
+            let submission = document.createElement("p");
+            submission.textContent += "File " + result[i].fileName;
+            submission.textContent += " uploaded at: " + result[i].uploadTime;
+
+            historyContent.appendChild(submission);
+        }
+    } catch (error) {
+        console.log("Error:", error);
+    }
 }
 
 window.addEventListener('load', updateHistory);

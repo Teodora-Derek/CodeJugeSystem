@@ -41,7 +41,7 @@ namespace CodeJudgeSystemWebApplication.Controllers
         {
             var file = _context.Files.Find(fileId);
 
-            if (file == null)
+            if (file is null)
             {
                 return NotFound();
             }
@@ -93,29 +93,6 @@ namespace CodeJudgeSystemWebApplication.Controllers
                     ?? fileUploadResult.Error;
 
             return BadRequest(problem);
-
-            /*
-            var appOptions = optAppOptions.Value;
-
-            var isSavedTask = _fileService.SaveFileInFileSystemAsync(appOptions.UnzipFolderPath, model.File);
-            var isExecutedTask = _fileService.RunFileDynamically(model.File);
-
-            await Task.WhenAll(isSavedTask, isExecutedTask);
-
-            var saveFileError = "Cannot save file!";
-            var runFileError = "Cannot run file!";
-
-            var error = (isSavedTask.Result, isExecutedTask.Result) switch
-            {
-                (false, false) => string.Empty,
-                (true, false) => saveFileError,
-                (false, true) => runFileError,
-                (true, true) => saveFileError + Environment.NewLine + runFileError,
-            };
-
-            return error == string.Empty
-                ? Ok()
-                : BadRequest(error);*/
         }
     }
 }

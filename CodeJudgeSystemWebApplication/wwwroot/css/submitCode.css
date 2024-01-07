@@ -1,9 +1,9 @@
-﻿body {
+﻿main {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -11,6 +11,8 @@
 
 .upload-form {
     background-color: #fff;
+    margin: auto;
+    text-align: center;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -18,55 +20,53 @@
 
     .upload-form label {
         display: block;
-        margin-bottom: 10px;
         font-weight: bold;
     }
 
     .upload-form input[type="file"] {
-        width: 100%;
+        text-align: center;
         padding: 10px;
         margin-bottom: 20px;
+        margin-left: 25px;
+        margin-top: 20px;
         box-sizing: border-box;
     }
 
-.file-preview {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-}
-
-    .file-preview .file-info {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .file-preview .remove-btn {
-        margin-left: auto;
+    .upload-form button {
+        background-color: lightgoldenrodyellow;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
         cursor: pointer;
-        color: #ff0000;
     }
 
-        .file-preview .remove-btn:hover {
-            text-decoration: underline;
+    #uploadButton {
+        background-color: #4caf50;
+        color: #fff;
+    }
+
+        .upload-form button:hover {
+            background-color: #45a049;
         }
-
-.upload-form button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-    .upload-form button:hover {
-        background-color: #45a049;
-    }
 
 #selected-files {
     margin-top: 10px;
     width: 100%;
-    height: 100px; /* Adjust the height as needed */
+    height: 100px;
     box-sizing: border-box;
     resize: none;
+}
+
+#history {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#historyContent {
+    width: auto;
+    height: auto;
 }
