@@ -25,7 +25,7 @@ namespace CodeJudgeSystemWebApplication.Migrations.File
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     FileExtention = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    UploadTime = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                    UploadTime = table.Column<DateTime>(type: "datetime", nullable: false)
                 },
                 constraints: table =>
                 {
