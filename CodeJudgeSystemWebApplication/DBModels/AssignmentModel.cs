@@ -1,13 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
-using System.Text.RegularExpressions;
-using System;
 
 namespace CodeJudgeSystemWebApplication.Models
 {
     public class AssignmentModel
     {
+        [Key]
+        public int Id { get; set; }
+
         [Required]
         [MemberNotNull(nameof(Subject))]
         [Column(TypeName = "nvarchar(100)")]
@@ -20,21 +21,26 @@ namespace CodeJudgeSystemWebApplication.Models
 
         [Required]
         [MemberNotNull(nameof(DueDate))]
-        [Column(TypeName = "nvarchar(100)")]
-        public string DueDate { get; set; } = string.Empty;
+        public DateTime DueDate { get; set; }
 
         [Required]
-        public short Course { get; set;}
+        public string Course { get; set; } = string.Empty;
 
         [Required]
-        public short Semester { get; set; }
+        public string Semester { get; set; } = string.Empty;
 
-        [Required]      
-        public short TargetGroup { get; set; }
+        [Required]
+        public string TargetGroup { get; set; } = string.Empty;
 
         [Required]
         public string Description { get; set; } = string.Empty;
 
+        [Required]
+        public string ExpectedInput { get; set; } = string.Empty;
+
+        [Required]
+        public string ExpectedOutput { get; set; } = string.Empty;
+
     }
 
-}   
+}
