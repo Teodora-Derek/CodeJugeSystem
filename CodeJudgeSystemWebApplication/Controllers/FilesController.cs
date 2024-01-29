@@ -13,6 +13,7 @@ using Microsoft.CodeAnalysis.Text;
 using System.IO;
 using CodeJudgeSystemWebApplication.Services;
 using CodeJudgeSystemWebApplication.AppModels;
+using CodeJudgeSystemWebApplication.Migrations.Assignment;
 
 namespace CodeJudgeSystemWebApplication.Controllers
 {
@@ -21,10 +22,12 @@ namespace CodeJudgeSystemWebApplication.Controllers
     public class FilesController : ControllerBase
     {
         private readonly FileContext _context;
+        private readonly AssignmentContext _assignmentContext;
         private readonly IFileService _fileService;
 
-        public FilesController(FileContext context, IFileService fileService)
+        public FilesController(FileContext context, AssignmentContext assignmentContext, IFileService fileService)
         {
+            _assignmentContext = assignmentContext;
             _context = context;
             _fileService = fileService;
         }
@@ -69,8 +72,17 @@ namespace CodeJudgeSystemWebApplication.Controllers
         }
 
         [HttpPost("upload")]
-        public async Task<IActionResult> Upload(IOptions<AppOptions> optAppOptions, [FromForm] FileModelDTO model)
+        public async Task<IActionResult> Upload(IOptions<AppOptions> optAppOptions, [FromForm] FileModelDTO model, int assignmentId)
         {
+            assignmentId = 1;
+            var assignment = _assignmentContext.Assignments.Find(assignmentId);
+
+            if (assignment == null)
+                return BadRequest();
+
+            assignment.ExpectedInputAndOutputPairs = "1-2,3-4,5-6";
+            List<KeyValuePair<string, string>> inputAndOutputPairs = _fileService.ConvertToInputAndOutput(assignment.ExpectedInputAndOutputPairs);
+
             var file = new FileModel
             {
                 FileName = model.File.FileName,
@@ -81,17 +93,21 @@ namespace CodeJudgeSystemWebApplication.Controllers
             _context.Files.Add(file);
             await _context.SaveChangesAsync();
 
-            var fileUploadResult = await Task.Run(() => _fileService.RunFileDynamically(model.File));
+            var grade = 2;
+
+            foreach (var iopair in inputAndOutputPairs)
+            {
+                var fileUploadResult = await Task.Run(() => _fileService.RunFileDynamically(model.File,iopair.Key));
+
+                if (fileUploadResult.ToLower() == iopair.Value.ToLower())
+                {
+                    grade++;
+                }
+            }
+
             var fileSaveResult = await _fileService.SaveFileInFileSystemAsync(optAppOptions.Value.UnzipFolderPath, model.File);
 
-            if (fileUploadResult.IsSuccessful && fileSaveResult)
-                return Ok(fileUploadResult.Result);
-
-            var problem = ((object?)fileUploadResult.Diagnostics
-                    ?? fileUploadResult.Exception)
-                    ?? fileUploadResult.Error;
-
-            return BadRequest(problem);
+            return Ok(grade);
         }
     }
 }

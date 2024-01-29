@@ -51,8 +51,7 @@ namespace CodeJudgeSystemWebApplication.Controllers
                 existingAssignment.Semester = updatedAssignment.Semester;
                 existingAssignment.TargetGroup = updatedAssignment.TargetGroup;
                 existingAssignment.Description = updatedAssignment.Description;
-                existingAssignment.ExpectedInput = updatedAssignment.ExpectedInput;
-                existingAssignment.ExpectedOutput = updatedAssignment.ExpectedOutput;
+                existingAssignment.ExpectedInputAndOutputPairs = updatedAssignment.ExpectedInputAndOutputPairs;
 
                 _context.SaveChanges();
             }

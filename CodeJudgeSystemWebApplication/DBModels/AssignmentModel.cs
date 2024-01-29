@@ -36,10 +36,7 @@ namespace CodeJudgeSystemWebApplication.Models
         public string Description { get; set; } = string.Empty;
 
         [Required]
-        public string ExpectedInput { get; set; } = string.Empty;
-
-        [Required]
-        public string ExpectedOutput { get; set; } = string.Empty;
+        public string ExpectedInputAndOutputPairs { get; set; } = string.Empty;
 
     }
 
