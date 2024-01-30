@@ -2092,12 +2092,35 @@
         <a href="./sign-up.html">Sign Up</a>
         <a href="./login.html">Login</a>
     </div>
-    <div class="assignment-container">
-        <h1>Assignments</h1>
-        <div id="assignments-grid" class="assignments-grid">
-            
 
-            <!-- More assignments... -->
+
+
+    <div id="createAssignmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="createAssignmentForm">
+                <h2>Add Assignment</h2>
+                <input type="text" id="subject" name="subject" placeholder="Subject">
+                <input type="text" id="assignmentName" name="assignmentName" placeholder="Assignment Name">
+                <input type="datetime-local" id="dueDate" name="dueDate">
+                <input type="text" id="course" name="course" placeholder="Course">
+                <input type="text" id="semester" name="semester" placeholder="Semester">
+                <input type="text" id="targetGroup" name="targetGroup" placeholder="Target Group">
+                <textarea id="description" name="description" placeholder="Description"></textarea>
+                <input type="text" id="expectedInputAndOutputPairs" name="expectedInputAndOutputPairs" placeholder="Expected Input and Output Pairs">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="assignment-container">
+        <div class="header-container">
+            <h1>Assignments</h1>
+            <button id="createAssignmentBtn" class="create-btn">Add Assignment</button>
+        </div>
+        <div id="assignments-grid" class="assignments-grid" >
+
         </div>
     </div>
 

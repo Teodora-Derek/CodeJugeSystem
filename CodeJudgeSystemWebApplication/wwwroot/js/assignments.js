@@ -33,3 +33,51 @@ function displayAssignments(assignments) {
         container.appendChild(card);
     });
 }
+
+document.getElementById('createAssignmentBtn').onclick = function () {
+    document.getElementById('createAssignmentModal').style.display = 'block';
+};
+
+document.getElementsByClassName('close')[0].onclick = function () {
+    document.getElementById('createAssignmentModal').style.display = 'none';
+};
+
+window.onclick = function (event) {
+    if (event.target == document.getElementById('createAssignmentModal')) {
+        document.getElementById('createAssignmentModal').style.display = 'none';
+    }
+};
+
+document.getElementById('createAssignmentForm').onsubmit = function (event) {
+    submitAssignment();
+};
+
+function submitAssignment() {
+    const assignmentData = {
+        subject: document.getElementById('subject').value,
+        assignmentName: document.getElementById('assignmentName').value,
+        dueDate: document.getElementById('dueDate').value,
+        course: document.getElementById('course').value,
+        semester: document.getElementById('semester').value,
+        targetGroup: document.getElementById('targetGroup').value,
+        description: document.getElementById('description').value,
+        expectedInputAndOutputPairs: document.getElementById('expectedInputAndOutputPairs').value
+    };
+
+
+    fetch('http://localhost:5026/api/assignments', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(assignmentData),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            document.getElementById('createAssignmentModal').style.display = 'none';
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
