@@ -34,10 +34,10 @@ const addNewIOPair = () => {
     var dynamicId = 'IOPairId_' + dynamicIdCounter;
 
     var newIOPairHtmlCode = '<div id="' + dynamicId + '" style="" class="grunion-field-text-wrap grunion-field-wrap">' +
-        '<label for="g27-additionalattachments" class="grunion-field-label text">Expected input ' + dynamicIdCounter + '</label>' +
-        '<input type="text" name="g27-additionalattachments" id="g27-additionalattachments" value="" class="text grunion-field">' +
-        '<label for="g27-additionalattachments" class="grunion-field-label text">Expected output ' + dynamicIdCounter + '</label>' +
-        '<input type="text" name="g27-additionalattachments" id="g27-additionalattachments" value="" class="text grunion-field">' +
+        '<label for="expectedInputAndOutputPairs" class="grunion-field-label text">Expected input ' + dynamicIdCounter + '</label>' +
+        '<input type="text" name="g27-additionalattachments" id="expectedInputAndOutputPairs" value="" class="text grunion-field">' +
+        '<label for="expectedInputAndOutputPairs" class="grunion-field-label text">Expected output ' + dynamicIdCounter + '</label>' +
+        '<input type="text" name="g27-additionalattachments" id="expectedInputAndOutputPairs" value="" class="text grunion-field">' +
         '</div>';
 
     console.log('Added pair_id: ' + dynamicIdCounter);

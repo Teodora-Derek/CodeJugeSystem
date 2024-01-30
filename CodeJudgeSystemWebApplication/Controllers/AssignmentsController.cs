@@ -31,7 +31,7 @@ namespace CodeJudgeSystemWebApplication.Controllers
         }
 
         [HttpPost]
-        public void AddAssignment(AssignmentModel assignment)
+        public void AddAssignment([FromForm] AssignmentModel assignment)
         {
             _context.Assignments.Add(assignment);
             _context.SaveChanges();
