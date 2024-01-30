@@ -2,17 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="max-image-preview:large">
-    <title>Administration – CodeJudgeSystem</title>
-    <link rel="dns-prefetch" href="//s0.wp.com">
-    <link rel="dns-prefetch" href="//wordpress.com">
-    <link rel="alternate" type="application/rss+xml" title="CodeJudgeSystem » Feed" href="https://codejudgesystem.wordpress.com/feed/">
-    <link rel="alternate" type="application/rss+xml" title="CodeJudgeSystem » Comments Feed" href="https://codejudgesystem.wordpress.com/comments/feed/">
-    <link rel="alternate" type="application/rss+xml" title="CodeJudgeSystem » Administration Comments Feed" href="https://codejudgesystem.wordpress.com/about/feed/">
-    <link href="./css/topNav.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments</title>
+    <link href="./css/assignments.css" rel="stylesheet" type="text/css">
+    <link href="./css/topNav.css" rel="stylesheet" type="text/css">
+    <link href="./css/assignments.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="./Pictures/favicon.png">
     <script src="./js/topNav.js" defer></script>
-    <script src="./js/admin.js" defer></script>
+
 
     <script type="text/javascript">
         /* <![CDATA[ */
@@ -2083,9 +2080,6 @@
             src: url('https://s0.wp.com/wp-content/themes/pub/creatio-2/assets/fonts/inter_normal_400.ttf') format('truetype');
         }
     </style>
-    <script src="https://s0.wp.com/wp-includes/js/wp-emoji-release.min.js?m=1677072837i&amp;ver=6.5-alpha-57144" defer=""></script>
-    <link rel="stylesheet" id="gravatar-card-css" href="https://0.gravatar.com/js/hovercards/hovercards.min.css?ver=202401131f6b765e798866d728f95661b78bbf269c86482ffff0fa8c08e18a1a65cc89">
-    <link href="https://s0.wp.com/wp-content/mu-plugins/actionbar/actionbar.css?v=20231122" type="text/css" rel="stylesheet">
 </head>
 <body>
     <div id="topnav">
@@ -2098,289 +2092,17 @@
         <a href="./sign-up.html">Sign Up</a>
         <a href="./login.html">Login</a>
     </div>
+    <div class="assignment-container">
+        <h1>Assignments</h1>
+        <div id="assignments-grid" class="assignments-grid">
+            
 
-    <main class="wp-block-group is-layout-flow wp-container-core-group-layout-10 wp-block-group-is-layout-flow" style="margin-top:var(--wp--preset--spacing--70);margin-bottom:var(--wp--preset--spacing--70)" id="wp--skip-link--target">
-
-        <div class="wp-block-group has-global-padding is-layout-constrained wp-container-core-group-layout-6 wp-block-group-is-layout-constrained"
-             style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60)">
-            <h2 class="has-text-align-left alignwide wp-block-post-title has-xxxx-large-font-size">
-                Administration
-            </h2>
+            <!-- More assignments... -->
         </div>
+    </div>
 
-        <figure class="wp-block-image size-large" style="text-align:center;"><img src="./Pictures/admin.jpg" alt="admin.jpg"></figure>
-
-        <div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-layout-1 wp-block-buttons-is-layout-flex">
-            <div id="registerStudentBtn" class="wp-block-button" onclick="toggleRegisterStudentBtn()"><a class="wp-block-button__link wp-element-button">Register a student</a></div>
-            <div id="createAssignmentBtn" class="wp-block-button" onclick="toggleCreateAssignmentBtn()"><a class="wp-block-button__link wp-element-button">Create an assignment</a></div>
-        </div>
-
-        <div id="registerStudentContent" style="display: none;">
-
-            <div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
-                <div class="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
-                    <div class="wp-block-group alignfull has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-                        <div class="wp-block-columns alignwide is-layout-flex wp-container-core-columns-layout-1 wp-block-columns-is-layout-flex" style="margin-bottom:var(--wp--preset--spacing--70)">
-
-
-                            <div class="wp-block-column is-vertically-aligned-bottom is-layout-flow wp-container-core-column-layout-2 wp-block-column-is-layout-flow">
-                                <h2 class="wp-block-heading has-large-font-size">Register a student</h2>
-                                <p>Please, fill the form below in order to add a new student to the system.</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div data-test="contact-form" id="contact-form-1" class="wp-block-jetpack-contact-form-container " style="--jetpack--contact-form--primary-color: rgb(0, 90, 225); --jetpack--contact-form--background-color: rgb(255, 255, 255); --jetpack--contact-form--text-color: rgb(0, 0, 0); --jetpack--contact-form--border: 0.8px solid rgb(140, 143, 148); --jetpack--contact-form--border-color: rgb(140, 143, 148); --jetpack--contact-form--border-size: 0.8px; --jetpack--contact-form--border-style: solid; --jetpack--contact-form--border-radius: 0px; --jetpack--contact-form--input-background: rgb(255, 255, 255); --jetpack--contact-form--input-background-fallback: rgb(255, 255, 255); --jetpack--contact-form--input-padding: 16px; --jetpack--contact-form--input-padding-top: 16px; --jetpack--contact-form--input-padding-left: 16px; --jetpack--contact-form--font-size: 17px; --jetpack--contact-form--font-family: Inter; --jetpack--contact-form--line-height: 27.2px; --jetpack--contact-form--button-primary--color: rgb(255, 255, 255); --jetpack--contact-form--button-primary--background-color: rgb(0, 90, 225); --jetpack--contact-form--button-primary--border: 0px none rgb(255, 255, 255); --jetpack--contact-form--button-primary--border-color: rgb(255, 255, 255); --jetpack--contact-form--button-outline--padding: 14px 22.661px; --jetpack--contact-form--button-outline--border: 1.6px solid rgb(0, 90, 225); --jetpack--contact-form--button-outline--background-color: rgba(0, 0, 0, 0); --jetpack--contact-form--button-outline--background-color-fallback: rgb(255, 255, 255); --jetpack--contact-form--button-outline--border-size: 1.6px; --jetpack--contact-form--button-outline--border-radius: 4px; --jetpack--contact-form--button-outline--text-color: rgb(0, 90, 225); --jetpack--contact-form--button-outline--line-height: 17px;">
-                        <form action="https://codejudgesystem.wordpress.com/about/#contact-form-1" method="post" class="contact-form commentsblock wp-block-jetpack-contact-form" aria-label="Administration" novalidate="">
-
-                            <div class="wp-block-jetpack-contact-form" style="padding-top:16px;padding-right:16px;padding-bottom:16px;padding-left:16px">
-                                <div style="" class="grunion-field-name-wrap grunion-field-wrap">
-                                    <label for="g1-firstname" class="grunion-field-label name">First name<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                    <input type="text" name="g1-firstname" id="g1-firstname" value="" class="name  grunion-field" required="" aria-required="true">
-                                </div>
-
-
-
-                                <div style="" class="grunion-field-name-wrap grunion-field-wrap">
-                                    <label for="g1-lastname" class="grunion-field-label name">Last name<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                    <input type="text" name="g1-lastname" id="g1-lastname" value="" class="name  grunion-field" required="" aria-required="true">
-                                </div>
-
-
-
-                                <div style="" class="grunion-field-email-wrap grunion-field-wrap">
-                                    <label for="g1-email" class="grunion-field-label email">Email<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                    <input type="email" name="g1-email" id="g1-email" value="" class="email  grunion-field" required="" aria-required="true">
-                                </div>
-
-
-
-                                <div style="" class="grunion-field-telephone-wrap grunion-field-wrap">
-                                    <label for="g1-facultynumber" class="grunion-field-label telephone">Faculty number<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                    <input type="tel" name="g1-facultynumber" id="g1-facultynumber" value="" class="telephone  grunion-field" required="" aria-required="true">
-                                </div>
-
-
-
-                                <div style="" class="grunion-field-select-wrap grunion-field-wrap">
-                                    <label for="g1-major" class="grunion-field-label select">Major<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                    <div class="contact-form__select-wrapper">
-                                        <select name="g1-major" id="g1-major" class="select  grunion-field" required="" aria-required="true">
-                                            <option value="">Select one option</option>
-                                            <option value="Informatics and computer science">Informatics and computer science</option>
-                                            <option value="Applied mathematics">Applied mathematics</option>
-                                            <option value="Computer systems and technologies">Computer systems and technologies</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-
-                                <div style="" class="grunion-field-select-wrap grunion-field-wrap">
-                                    <label for="g1-major" class="grunion-field-label select">Subject<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                    <div class="contact-form__select-wrapper">
-                                        <select name="g1-major" id="g1-major" class="select  grunion-field" required="" aria-required="true">
-                                            <option value="">Select one option</option>
-                                            <option value="Object-oriented programming">Object-oriented programming</option>
-                                            <option value="Synthesis and analysis of algorithms">Synthesis and analysis of algorithms</option>
-                                            <option value="Introduction to programming">Introduction to programming</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-
-                                <div style="" class="grunion-field-radio-wrap grunion-field-wrap">
-                                    <fieldset id="g1-course-label" class="grunion-radio-options">
-                                        <legend class="grunion-field-label">Course<span class="grunion-label-required">(required)</span></legend>
-                                        <p class="contact-form-field"><input id="g1-course-1" type="radio" name="g1-course" value="1" class="radio  grunion-field" required="" aria-required="true"> <label for="g1-course-1" style="" class="grunion-radio-label radio"><span class="grunion-field-text">1</span></label></p><p class="contact-form-field"><input id="g1-course-2" type="radio" name="g1-course" value="2" class="radio  grunion-field" required="" aria-required="true"> <label for="g1-course-2" style="" class="grunion-radio-label radio"><span class="grunion-field-text">2</span></label></p><p class="contact-form-field"><input id="g1-course-3" type="radio" name="g1-course" value="3" class="radio  grunion-field" required="" aria-required="true"> <label for="g1-course-3" style="" class="grunion-radio-label radio"><span class="grunion-field-text">3</span></label></p><p class="contact-form-field"><input id="g1-course-4" type="radio" name="g1-course" value="4" class="radio  grunion-field" required="" aria-required="true"> <label for="g1-course-4" style="" class="grunion-radio-label radio"><span class="grunion-field-text">4</span></label></p>
-                                    </fieldset>
-                                </div>
-
-
-
-                                <div style="" class="grunion-field-radio-wrap grunion-field-wrap">
-                                    <fieldset id="g1-semester-label" class="grunion-radio-options">
-                                        <legend class="grunion-field-label">Semester<span class="grunion-label-required">(required)</span></legend>
-                                        <p class="contact-form-field"><input id="g1-semester-1" type="radio" name="g1-semester" value="1" class="radio  grunion-field" required="" aria-required="true"> <label for="g1-semester-1" style="" class="grunion-radio-label radio"><span class="grunion-field-text">1</span></label></p><p class="contact-form-field"><input id="g1-semester-2" type="radio" name="g1-semester" value="2" class="radio  grunion-field" required="" aria-required="true"> <label for="g1-semester-2" style="" class="grunion-radio-label radio"><span class="grunion-field-text">2</span></label></p><p class="contact-form-field"><input id="g1-semester-3" type="radio" name="g1-semester" value="3" class="radio  grunion-field" required="" aria-required="true"> <label for="g1-semester-3" style="" class="grunion-radio-label radio"><span class="grunion-field-text">3</span></label></p><p class="contact-form-field"><input id="g1-semester-4" type="radio" name="g1-semester" value="4" class="radio  grunion-field" required="" aria-required="true"> <label for="g1-semester-4" style="" class="grunion-radio-label radio"><span class="grunion-field-text">4</span></label></p><p class="contact-form-field"><input id="g1-semester-5" type="radio" name="g1-semester" value="5" class="radio  grunion-field" required="" aria-required="true"> <label for="g1-semester-5" style="" class="grunion-radio-label radio"><span class="grunion-field-text">5</span></label></p><p class="contact-form-field"><input id="g1-semester-6" type="radio" name="g1-semester" value="6" class="radio  grunion-field" required="" aria-required="true"> <label for="g1-semester-6" style="" class="grunion-radio-label radio"><span class="grunion-field-text">6</span></label></p><p class="contact-form-field"><input id="g1-semester-7" type="radio" name="g1-semester" value="7" class="radio  grunion-field" required="" aria-required="true"> <label for="g1-semester-7" style="" class="grunion-radio-label radio"><span class="grunion-field-text">7</span></label></p><p class="contact-form-field"><input id="g1-semester-8" type="radio" name="g1-semester" value="8" class="radio  grunion-field" required="" aria-required="true"> <label for="g1-semester-8" style="" class="grunion-radio-label radio"><span class="grunion-field-text">8</span></label></p>
-                                    </fieldset>
-                                </div>
-
-
-
-                                <div style="" class="grunion-field-telephone-wrap grunion-field-wrap">
-                                    <label for="g1-group" class="grunion-field-label telephone">Group<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                    <input type="tel" name="g1-group" id="g1-group" value="" class="telephone  grunion-field" required="" aria-required="true">
-                                </div>
-
-
-                                <div class="wp-block-jetpack-button wp-block-button" style=""><button class="wp-block-button__link" style="" data-id-attr="placeholder" type="submit">Register</button></div>
-                            </div>
-                            <input type="hidden" name="contact-form-id" value="1">
-                            <input type="hidden" name="action" value="grunion-contact-form">
-                            <input type="hidden" name="contact-form-hash" value="52c94fc6ee4a48aab9f249df0cac29cd0f4d0b39">
-                            <p style="display: none !important;">
-                                <label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="1704553386687">
-                                <script>document.getElementById("ak_js_1").setAttribute("value", (new Date()).getTime());</script>
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained"></div>
-
-        </div>
-        <div id="createAssignmentContent" style="display: none;">
-            <div class="wp-block-group is-layout-flow wp-container-core-group-layout-9 wp-block-group-is-layout-flow" style="margin-top:var(--wp--preset--spacing--70);margin-bottom:var(--wp--preset--spacing--70)" id="wp--skip-link--target">
-
-                <!--<div class="wp-block-group has-global-padding is-layout-constrained wp-container-core-group-layout-6 wp-block-group-is-layout-constrained" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60)">
-                    <h2 class="has-text-align-left alignwide wp-block-post-title has-xxxx-large-font-size">Assignments</h2>
-                </div>-->
-                <div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
-
-                    <div class="wp-block-group alignfull has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-                        <div class="wp-block-columns alignwide is-layout-flex wp-container-core-columns-layout-1 wp-block-columns-is-layout-flex" style="margin-bottom:var(--wp--preset--spacing--70)">
-
-
-
-                            <div class="wp-block-column is-vertically-aligned-bottom is-layout-flow wp-container-core-column-layout-2 wp-block-column-is-layout-flow">
-                                <h2 class="wp-block-heading has-large-font-size">Create an assignment</h2>
-                                <p>Please, fill the form below in order to create a new assignment to the system.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
-
-                        <!--<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-layout-1 wp-block-buttons-is-layout-flex">
-                            <div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Create an assignment</a></div>
-                        </div>-->
-
-
-                        <div data-test="contact-form" id="contact-form-27" class="wp-block-jetpack-contact-form-container " style="--jetpack--contact-form--primary-color: rgb(0, 90, 225); --jetpack--contact-form--background-color: rgb(255, 255, 255); --jetpack--contact-form--text-color: rgb(0, 0, 0); --jetpack--contact-form--border: 0.8px solid rgb(140, 143, 148); --jetpack--contact-form--border-color: rgb(140, 143, 148); --jetpack--contact-form--border-size: 0.8px; --jetpack--contact-form--border-style: solid; --jetpack--contact-form--border-radius: 0px; --jetpack--contact-form--input-background: rgb(255, 255, 255); --jetpack--contact-form--input-background-fallback: rgb(255, 255, 255); --jetpack--contact-form--input-padding: 16px; --jetpack--contact-form--input-padding-top: 16px; --jetpack--contact-form--input-padding-left: 16px; --jetpack--contact-form--font-size: 17px; --jetpack--contact-form--font-family: Inter; --jetpack--contact-form--line-height: 27.2px; --jetpack--contact-form--button-primary--color: rgb(255, 255, 255); --jetpack--contact-form--button-primary--background-color: rgb(0, 90, 225); --jetpack--contact-form--button-primary--border: 0px none rgb(255, 255, 255); --jetpack--contact-form--button-primary--border-color: rgb(255, 255, 255); --jetpack--contact-form--button-outline--padding: 14px 22.661px; --jetpack--contact-form--button-outline--border: 1.6px solid rgb(0, 90, 225); --jetpack--contact-form--button-outline--background-color: rgba(0, 0, 0, 0); --jetpack--contact-form--button-outline--background-color-fallback: rgb(255, 255, 255); --jetpack--contact-form--button-outline--border-size: 1.6px; --jetpack--contact-form--button-outline--border-radius: 4px; --jetpack--contact-form--button-outline--text-color: rgb(0, 90, 225); --jetpack--contact-form--button-outline--line-height: 17px;">
-                            <form action="https://codejudgesystem.wordpress.com/?page_id=27#contact-form-27" method="post" class="contact-form commentsblock wp-block-jetpack-contact-form" aria-label="Assignments" novalidate="">
-
-                                <div id="assignmentFormContentsDiv" class="wp-block-jetpack-contact-form is-style-default" style="padding-top:16px;padding-right:16px;padding-bottom:16px;padding-left:16px">
-                                    <div style="" class="grunion-field-select-wrap grunion-field-wrap">
-                                        <label for="g27-subject" class="grunion-field-label select">Subject<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                        <div class="contact-form__select-wrapper">
-                                            <select name="g27-subject" id="g27-subject" class="select  grunion-field" required="" aria-required="true">
-                                                <option value="">Select one option</option>
-                                                <option value="Algorithms and data structures">Algorithms and data structures</option>
-                                                <option value="Introduction to programming">Introduction to programming</option>
-                                                <option value="Object-oriented programming">Object-oriented programming</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div style="" class="grunion-field-name-wrap grunion-field-wrap">
-                                        <label for="g27-assignmentname" class="grunion-field-label name">Assignment name<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                        <input type="text" name="g27-assignmentname" id="g27-assignmentname" value="" class="name  grunion-field" required="" aria-required="true">
-                                    </div>
-
-
-
-                                    <div style="" class="grunion-field-date-wrap jp-contact-form-date-wrap grunion-field-wrap">
-                                        <label for="g27-duedate" class="grunion-field-label date">Due date (YYYY-MM-DD)<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                        <input type="text" name="g27-duedate" id="g27-duedate" value="" class="date jp-contact-form-date grunion-field hasDatepicker" required="" aria-required="true" data-format="yy-mm-dd">
-                                    </div>
-
-
-
-                                    <div style="" class="grunion-field-telephone-wrap grunion-field-wrap">
-                                        <label for="g27-course" class="grunion-field-label telephone">Course<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                        <input type="tel" name="g27-course" id="g27-course" value="" class="telephone  grunion-field" required="" aria-required="true">
-                                    </div>
-
-
-
-                                    <div style="" class="grunion-field-telephone-wrap grunion-field-wrap">
-                                        <label for="g27-semester" class="grunion-field-label telephone">Semester<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                        <input type="tel" name="g27-semester" id="g27-semester" value="" class="telephone  grunion-field" required="" aria-required="true">
-                                    </div>
-
-
-
-                                    <div style="" class="grunion-field-text-wrap grunion-field-wrap">
-                                        <label for="g27-targetgroups" class="grunion-field-label text">Target groups<span class="grunion-label-required" aria-hidden="true">(required)</span></label>
-                                        <input type="text" name="g27-targetgroups" id="g27-targetgroups" value="" class="text  grunion-field" required="" aria-required="true">
-                                    </div>
-
-
-
-                                    <div style="" class="grunion-field-textarea-wrap grunion-field-wrap">
-                                        <label for="contact-form-comment-g27-description" class="grunion-field-label textarea">Description</label>
-                                        <textarea style="" name="g27-description" id="contact-form-comment-g27-description" rows="20" class="textarea  grunion-field"></textarea>
-                                    </div>
-
-                                    <div id="IOPairBtnsWrapper" class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-layout-1 wp-block-buttons-is-layout-flex">
-                                        <div id="addIOPairBtn" class="wp-block-button" onclick="addNewIOPair()"><a class="wp-block-button__link wp-element-button">Add new expected input/output pair</a></div>
-                                        <div id="removeIOPairBtn" class="wp-block-button" onclick="removeLastIOPair()"><a class="wp-block-button__link wp-element-button">Remove last added expected input/output pair</a></div>
-                                    </div>
-
-                                    <div class="wp-block-jetpack-button wp-block-button" style=""><button class="wp-block-button__link" style="" data-id-attr="placeholder" type="submit">Create</button></div>
-                                </div>
-                                <input type="hidden" id="_wpnonce" name="_wpnonce" value="f017ab7b43"><input type="hidden" name="_wp_http_referer" value="/?page_id=27&amp;preview=true">
-                                <input type="hidden" name="contact-form-id" value="27">
-                                <input type="hidden" name="action" value="grunion-contact-form">
-                                <input type="hidden" name="contact-form-hash" value="7b06dfaee07c28681a9254d273441f6e6a00a2f3">
-                                <p style="display: none !important;">
-                                    <label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="1704649939286">
-                                    <script>document.getElementById("ak_js_1").setAttribute("value", (new Date()).getTime());</script>
-                                </p>
-                            </form>
-                        </div>
-
-
-                        <div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-layout-2 wp-block-buttons-is-layout-flex">
-                            <div class="wp-block-button"><a class="wp-block-button__link has-text-align-center wp-element-button">View assignments</a></div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained"></div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="wp-block-template-part">
-        <div class="wp-block-group alignfull has-foreground-background-color has-text-color has-background is-layout-flow wp-block-group-is-layout-flow" style="color:#ffffff;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--60)">
-            <div class="wp-block-columns alignwide is-layout-flex wp-container-core-columns-layout-2 wp-block-columns-is-layout-flex">
-                <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:33.33%">
-                    <h3 class="wp-block-heading has-text-color" style="color:#ffffff;font-size:clamp(22.544px, 1.409rem + ((1vw - 3.2px) * 1.643), 37px);">Contact university</h3>
-
-
-
-                    <p class="has-text-color" style="color:#ffffff;font-size:clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.455), 18px);">ul. “Professor Georgi Bradistilov” 11, <br>1756 Studentski Kompleks, Sofia</p>
-
-
-
-                    <p class="has-text-color" style="color:#ffffff;font-size:clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.455), 18px);"><br><strong>(+ 359 2) 965 33 03 </strong><br><strong>(+ 359 2) 965 35 46</strong></p>
-
-
-
-                    <ul class="wp-block-social-links has-normal-icon-size margin-bottom-none is-content-justification-left is-layout-flex wp-container-core-social-links-layout-2 wp-block-social-links-is-layout-flex">
-                        <li class="wp-social-link wp-social-link-facebook  wp-block-social-link"><a href="https://facebook.com/" class="wp-block-social-link-anchor"><svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"></path></svg><span class="wp-block-social-link-label screen-reader-text">Facebook</span></a></li>
-
-                        <li class="wp-social-link wp-social-link-instagram  wp-block-social-link"><a href="https://instagram.com" class="wp-block-social-link-anchor"><svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M12,4.622c2.403,0,2.688,0.009,3.637,0.052c0.877,0.04,1.354,0.187,1.671,0.31c0.42,0.163,0.72,0.358,1.035,0.673 c0.315,0.315,0.51,0.615,0.673,1.035c0.123,0.317,0.27,0.794,0.31,1.671c0.043,0.949,0.052,1.234,0.052,3.637 s-0.009,2.688-0.052,3.637c-0.04,0.877-0.187,1.354-0.31,1.671c-0.163,0.42-0.358,0.72-0.673,1.035 c-0.315,0.315-0.615,0.51-1.035,0.673c-0.317,0.123-0.794,0.27-1.671,0.31c-0.949,0.043-1.233,0.052-3.637,0.052 s-2.688-0.009-3.637-0.052c-0.877-0.04-1.354-0.187-1.671-0.31c-0.42-0.163-0.72-0.358-1.035-0.673 c-0.315-0.315-0.51-0.615-0.673-1.035c-0.123-0.317-0.27-0.794-0.31-1.671C4.631,14.688,4.622,14.403,4.622,12 s0.009-2.688,0.052-3.637c0.04-0.877,0.187-1.354,0.31-1.671c0.163-0.42,0.358-0.72,0.673-1.035 c0.315-0.315,0.615-0.51,1.035-0.673c0.317-0.123,0.794-0.27,1.671-0.31C9.312,4.631,9.597,4.622,12,4.622 M12,3 C9.556,3,9.249,3.01,8.289,3.054C7.331,3.098,6.677,3.25,6.105,3.472C5.513,3.702,5.011,4.01,4.511,4.511 c-0.5,0.5-0.808,1.002-1.038,1.594C3.25,6.677,3.098,7.331,3.054,8.289C3.01,9.249,3,9.556,3,12c0,2.444,0.01,2.751,0.054,3.711 c0.044,0.958,0.196,1.612,0.418,2.185c0.23,0.592,0.538,1.094,1.038,1.594c0.5,0.5,1.002,0.808,1.594,1.038 c0.572,0.222,1.227,0.375,2.185,0.418C9.249,20.99,9.556,21,12,21s2.751-0.01,3.711-0.054c0.958-0.044,1.612-0.196,2.185-0.418 c0.592-0.23,1.094-0.538,1.594-1.038c0.5-0.5,0.808-1.002,1.038-1.594c0.222-0.572,0.375-1.227,0.418-2.185 C20.99,14.751,21,14.444,21,12s-0.01-2.751-0.054-3.711c-0.044-0.958-0.196-1.612-0.418-2.185c-0.23-0.592-0.538-1.094-1.038-1.594 c-0.5-0.5-1.002-0.808-1.594-1.038c-0.572-0.222-1.227-0.375-2.185-0.418C14.751,3.01,14.444,3,12,3L12,3z M12,7.378 c-2.552,0-4.622,2.069-4.622,4.622S9.448,16.622,12,16.622s4.622-2.069,4.622-4.622S14.552,7.378,12,7.378z M12,15 c-1.657,0-3-1.343-3-3s1.343-3,3-3s3,1.343,3,3S13.657,15,12,15z M16.804,6.116c-0.596,0-1.08,0.484-1.08,1.08 s0.484,1.08,1.08,1.08c0.596,0,1.08-0.484,1.08-1.08S17.401,6.116,16.804,6.116z"></path></svg><span class="wp-block-social-link-label screen-reader-text">Instagram</span></a></li>
-
-                        <li class="wp-social-link wp-social-link-youtube  wp-block-social-link"><a href="https://youtube.com" class="wp-block-social-link-anchor"><svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M21.8,8.001c0,0-0.195-1.378-0.795-1.985c-0.76-0.797-1.613-0.801-2.004-0.847c-2.799-0.202-6.997-0.202-6.997-0.202 h-0.009c0,0-4.198,0-6.997,0.202C4.608,5.216,3.756,5.22,2.995,6.016C2.395,6.623,2.2,8.001,2.2,8.001S2,9.62,2,11.238v1.517 c0,1.618,0.2,3.237,0.2,3.237s0.195,1.378,0.795,1.985c0.761,0.797,1.76,0.771,2.205,0.855c1.6,0.153,6.8,0.201,6.8,0.201 s4.203-0.006,7.001-0.209c0.391-0.047,1.243-0.051,2.004-0.847c0.6-0.607,0.795-1.985,0.795-1.985s0.2-1.618,0.2-3.237v-1.517 C22,9.62,21.8,8.001,21.8,8.001z M9.935,14.594l-0.001-5.62l5.404,2.82L9.935,14.594z"></path></svg><span class="wp-block-social-link-label screen-reader-text">YouTube</span></a></li>
-                    </ul>
-
-
-
-                    <p class="margin-top-half has-text-color has-link-color wp-elements-811a360cf2974357a75229d9a546f37f" style="color:#ffffff;font-size:clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.455), 18px);"><a href="mailto:info@tu-sofia.bg">info@tu-sofia.bg</a><br><a href="mailto:codeJudgeSystem@gmail.com">codeJudgeSystem@gmail.com</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <script src="js/assignments.js"></script>
 </body>
+</body>
+
 </html>
