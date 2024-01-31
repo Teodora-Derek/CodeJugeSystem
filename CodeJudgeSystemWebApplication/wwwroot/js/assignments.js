@@ -27,9 +27,13 @@ function displayAssignments(assignments) {
             <p>Course: <span>${assignment.course}</span></p>
             <p>Semester: <span>${assignment.semester}</span></p>
             <p>Target Groups: <span>${assignment.targetGroup}</span></p>
-            <p>Description: <span>${assignment.description}</span></p>
-            <p>Expected Input and Output: <span>${assignment.expectedInputAndOutputPairs}</span></p>
+            <button class="viewBtn">View Assignment</button>
         `;
+
+        const viewBtn = card.querySelector('.viewBtn');
+        viewBtn.onclick = function () {
+            openAssignmentModal(assignment.id);
+        };
         container.appendChild(card);
     });
 }
@@ -80,4 +84,27 @@ function submitAssignment() {
         .catch((error) => {
             console.error('Error:', error);
         });
+}
+
+function openAssignmentModal(assignmentId) {
+    fetch(`http://localhost:5026/api/assignments/${assignmentId}`)
+        .then(response => response.json())
+        .then(assignment => {
+            document.getElementById('modalSubject').textContent = assignment.subject;
+            document.getElementById('modalAssignmentName').textContent = assignment.assignmentName;
+            document.getElementById('modalDueDate').textContent = new Date(assignment.dueDate).toLocaleString();
+            document.getElementById('modalCourse').textContent = assignment.course;
+            document.getElementById('modalSemester').textContent = assignment.semester;
+            document.getElementById('modalTargetGroup').textContent = assignment.targetGroup;
+            document.getElementById('modalDescription').textContent = assignment.description;
+            document.getElementById('modalExpectedInputAndOutputPairs').textContent = assignment.expectedInputAndOutputPairs;
+
+            document.getElementById('assignmentModal').style.display = 'block';
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
+function closeAssignmentModal() {
+    document.getElementById('assignmentModal').style.display = 'none';
 }

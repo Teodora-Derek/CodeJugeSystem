@@ -2119,8 +2119,26 @@
             <h1>Assignments</h1>
             <button id="createAssignmentBtn" class="create-btn">Add Assignment</button>
         </div>
-        <div id="assignments-grid" class="assignments-grid" >
+        <div id="assignments-grid" class="assignments-grid">
 
+        </div>
+    </div>
+
+
+    <div id="assignmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAssignmentModal()">&times;</span>
+            <h2>Assignment Details</h2>
+            <div id="assignmentInfo">
+                <p>Subject: <span id="modalSubject"></span></p>
+                <p>Assignment Name: <span id="modalAssignmentName"></span></p>
+                <p>Due Date: <span id="modalDueDate"></span></p>
+                <p>Course: <span id="modalCourse"></span></p>
+                <p>Semester: <span id="modalSemester"></span></p>
+                <p>Target Group: <span id="modalTargetGroup"></span></p>
+                <p>Description: <span id="modalDescription"></span></p>
+                <p>Expected Input and Output: <span id="modalExpectedInputAndOutputPairs"></span></p>
+            </div>
         </div>
     </div>
 
