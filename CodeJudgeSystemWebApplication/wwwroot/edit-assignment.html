@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Assignment</title>
+    <link href="css/edit-assignment.css" rel="stylesheet" type="text/css">
+    <link href="./css/topNav.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="./Pictures/favicon.png">
+    <script src="./js/topNav.js" defer></script>
+</head>
+<body>
+    <div id="topnav">
+        <a href="./index.html">Home</a>
+        <a href="./courses.html">Courses</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./admin.html">Administration</a>
+        <a href="./assignments.html">Assignments</a>
+        <a href="./submitCode.html">Submit Code</a>
+        <a href="./sign-up.html">Sign Up</a>
+        <a href="./login.html">Login</a>
+    </div>
+    <div class="container">
+        <form id="editAssignmentForm">
+            <h2>Edit Assignment</h2>
+            <input type="text" id="editSubject" name="subject">
+            <input type="text" id="editAssignmentName" name="assignmentName">
+            <input type="datetime-local" id="editDueDate" name="dueDate">
+            <input type="text" id="editCourse" name="course">
+            <input type="text" id="editSemester" name="semester">
+            <input type="text" id="editTargetGroup" name="targetGroup">
+            <textarea id="editDescription" name="description"></textarea>
+            <input type="text" id="editExpectedInputAndOutputPairs" name="expectedInputAndOutputPairs">
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+    <script src="js/edit-assignment.js"></script>
+</body>
+</html>
