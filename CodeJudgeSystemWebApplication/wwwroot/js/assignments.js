@@ -3,13 +3,17 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function fetchAssignments() {
+    document.getElementById('loadingIndicator').style.display = 'block';
+
     fetch('http://localhost:5026/api/assignments')
         .then(response => response.json())
         .then(data => {
+            document.getElementById('loadingIndicator').style.display = 'none';
             displayAssignments(data);
         })
         .catch(error => {
             console.error('Error fetching data: ', error);
+            document.getElementById('loadingIndicator').style.display = 'none';
         });
 }
 
@@ -54,6 +58,7 @@ window.onclick = function (event) {
 
 document.getElementById('createAssignmentForm').onsubmit = function (event) {
     submitAssignment();
+    window.location.reload();
 };
 
 function submitAssignment() {
@@ -86,7 +91,11 @@ function submitAssignment() {
         });
 }
 
+let currentAssignmentId = null;
+
 function openAssignmentModal(assignmentId) {
+    currentAssignmentId = assignmentId;
+
     fetch(`http://localhost:5026/api/assignments/${assignmentId}`)
         .then(response => response.json())
         .then(assignment => {
@@ -108,3 +117,30 @@ function openAssignmentModal(assignmentId) {
 function closeAssignmentModal() {
     document.getElementById('assignmentModal').style.display = 'none';
 }
+
+
+function editAssignment(assignmentId) {
+    // Logic to edit the assignment
+    // This might involve opening another form or modal
+}
+
+function deleteAssignment(assignmentId) {
+    if (!confirm('Are you sure you want to delete this assignment?')) {
+        return;
+    }
+
+    fetch(`http://localhost:5026/api/assignments/${assignmentId}`, {
+        method: 'DELETE',
+    })
+        .then(response => {
+            if (response.ok) {
+                console.log('Assignment deleted');
+                closeAssignmentModal();
+                window.location.reload();
+            } else {
+                console.error('Error deleting assignment');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+

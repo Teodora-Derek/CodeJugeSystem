@@ -2119,6 +2119,7 @@
             <h1>Assignments</h1>
             <button id="createAssignmentBtn" class="create-btn">Add Assignment</button>
         </div>
+        <div id="loadingIndicator" style="display: none;">LOADING...</div>
         <div id="assignments-grid" class="assignments-grid">
 
         </div>
@@ -2138,8 +2139,11 @@
                 <p>Target Group: <span id="modalTargetGroup"></span></p>
                 <p>Description: <span id="modalDescription"></span></p>
                 <p>Expected Input and Output: <span id="modalExpectedInputAndOutputPairs"></span></p>
+                <div class="button-container-modal">
+                    <button onclick="editAssignment(assignmentId)" class="edit">Edit</button>
+                    <button onclick="deleteAssignment(currentAssignmentId)" class="delete">Delete</button>
+                </div>
             </div>
-        </div>
     </div>
 
     <script src="js/assignments.js"></script>

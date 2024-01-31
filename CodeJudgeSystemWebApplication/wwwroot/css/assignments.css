@@ -78,8 +78,11 @@ span {
     cursor: pointer;
 }
 
+.viewBtn:hover {
+    opacity: 0.8;
+}
 
-/* Modal styles */
+
 .modal {
     display: none;
     position: fixed;
@@ -108,12 +111,12 @@ span {
     font-weight: bold;
 }
 
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 
 input[type="text"],
@@ -146,4 +149,41 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #45a049;
+}
+
+.button-container-modal {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.button-container-modal button {
+    flex: 1;
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.button-container-modal button.delete {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+.button-container-modal button.edit {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.button-container-modal button:hover {
+    opacity: 0.9;
+}
+
+#loadingIndicator {
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    margin-top: 20px;
 }
