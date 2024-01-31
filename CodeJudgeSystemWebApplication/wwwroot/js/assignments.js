@@ -120,8 +120,7 @@ function closeAssignmentModal() {
 
 
 function editAssignment(assignmentId) {
-    // Logic to edit the assignment
-    // This might involve opening another form or modal
+    window.location.href = `edit-assignment.html?assignmentId=${assignmentId}`;
 }
 
 function deleteAssignment(assignmentId) {
