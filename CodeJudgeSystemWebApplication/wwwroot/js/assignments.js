@@ -32,11 +32,16 @@ function displayAssignments(assignments) {
             <p>Semester: <span>${assignment.semester}</span></p>
             <p>Target Groups: <span>${assignment.targetGroup}</span></p>
             <button class="viewBtn">View Assignment</button>
+            <button class="submitCodeBtn">Submit Code</button>
         `;
 
         const viewBtn = card.querySelector('.viewBtn');
         viewBtn.onclick = function () {
             openAssignmentModal(assignment.id);
+        };
+        const submitBtn = card.querySelector('.submitCodeBtn');
+        submitBtn.onclick = function () {
+            goToSubmitCodeForAssignment(assignment.id);
         };
         container.appendChild(card);
     });
@@ -109,6 +114,9 @@ function closeAssignmentModal() {
     document.getElementById('assignmentModal').style.display = 'none';
 }
 
+function goToSubmitCodeForAssignment(assignmentId) {
+    window.location.href = `submitCode.html?assignmentId=${assignmentId}`;
+}
 
 function editAssignment(assignmentId) {
     window.location.href = `edit-assignment.html?assignmentId=${assignmentId}`;

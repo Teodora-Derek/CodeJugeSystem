@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function fetchAssignmentData(assignmentId) {
-    fetch(`http://localhost:5026/api/assignments/${assignmentId}`)
+    fetch(`https://localhost:7015/api/assignments/${assignmentId}`)
         .then(response => response.json())
         .then(assignment => {
             document.getElementById('editSubject').value = assignment.subject;
@@ -39,7 +39,7 @@ function updateAssignment(assignmentId) {
         expectedInputAndOutputPairs: document.getElementById('editExpectedInputAndOutputPairs').value
     };
 
-    fetch(`http://localhost:5026/api/assignments`, {
+    fetch(`https://localhost:7015/api/assignments`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ function updateAssignment(assignmentId) {
     })
         .then(response => {
             if (response.ok) {
-                window.location.href = 'http://localhost:5026/assignments.html';
+                window.location.href = 'https://localhost:7015/assignments.html';
             } else {
                 console.error('Failed to update assignment');
                 alert('There was an error updating the assignment.');
