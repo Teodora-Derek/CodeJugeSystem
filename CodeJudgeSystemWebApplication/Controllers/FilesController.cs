@@ -72,15 +72,13 @@ namespace CodeJudgeSystemWebApplication.Controllers
         }
 
         [HttpPost("upload")]
-        public async Task<IActionResult> Upload(IOptions<AppOptions> optAppOptions, [FromForm] FileModelDTO model, int assignmentId)
+        public async Task<IActionResult> Upload(IOptions<AppOptions> optAppOptions, [FromForm] FileModelDTO model, [FromQuery] int assignmentId)
         {
-            assignmentId = 1;
             var assignment = _assignmentContext.Assignments.Find(assignmentId);
 
             if (assignment == null)
                 return BadRequest();
 
-            assignment.ExpectedInputAndOutputPairs = "1-2,3-4,5-6";
             List<KeyValuePair<string, string>> inputAndOutputPairs = _fileService.ConvertToInputAndOutput(assignment.ExpectedInputAndOutputPairs);
 
             var file = new FileModel
