@@ -1,72 +1,60 @@
-﻿main {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+﻿body, html {
     margin: 0;
     padding: 0;
-    display: grid;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    flex: 1;
+    padding: 20px 0;
 }
 
-.upload-form {
+.assignment, .upload-form, #history, .grade {
     background-color: #fff;
-    margin: auto;
+    margin: 10px 0;
     text-align: center;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
 }
 
-    .upload-form label {
-        display: block;
-        font-weight: bold;
-    }
+.upload-form button {
+    background-color: lightgoldenrodyellow;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-    .upload-form input[type="file"] {
-        text-align: center;
-        padding: 10px;
-        margin-bottom: 20px;
-        margin-left: 25px;
-        margin-top: 20px;
-        box-sizing: border-box;
-    }
+#uploadButton {
+    background-color: #4caf50;
+    color: #fff;
+}
 
-    .upload-form button {
-        background-color: lightgoldenrodyellow;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+.upload-form button:hover {
+    background-color: #45a049;
+}
 
-    #uploadButton {
-        background-color: #4caf50;
-        color: #fff;
-    }
+.upload-form label {
+    display: block;
+    font-weight: bold;
+}
 
-        .upload-form button:hover {
-            background-color: #45a049;
-        }
-
-#selected-files {
-    margin-top: 10px;
-    width: 100%;
-    height: 100px;
+.upload-form input[type="file"] {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    margin-top: 20px;
     box-sizing: border-box;
-    resize: none;
-}
-
-#history {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-#historyContent {
-    width: auto;
-    height: auto;
 }
