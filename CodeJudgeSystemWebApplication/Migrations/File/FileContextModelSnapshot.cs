@@ -34,11 +34,11 @@ namespace CodeJudgeSystemWebApplication.Migrations.File
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("UploadTime")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("FileID");
 
-                    b.ToTable("Files");
+                    b.ToTable("Files", (string)null);
                 });
 #pragma warning restore 612, 618
         }

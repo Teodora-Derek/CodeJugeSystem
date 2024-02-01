@@ -32,10 +32,11 @@ namespace CodeJudgeSystemWebApplication.Controllers
             _fileService = fileService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<FileModel>>> GetFiles()
+        [HttpGet("assignmentId")]
+        public async Task<ActionResult<IEnumerable<FileModel>>> GetFiles(int assignmentId)
         {
-            return await _context.Files.ToListAsync();
+            return await _context.Files
+                .Where(f => f.AssignmentId == assignmentId).ToListAsync();
         }
 
         [HttpGet("{fileId}")]
@@ -74,6 +75,7 @@ namespace CodeJudgeSystemWebApplication.Controllers
         [HttpPost("upload")]
         public async Task<IActionResult> Upload(IOptions<AppOptions> optAppOptions, [FromForm] FileModelDTO model, [FromQuery] int assignmentId)
         {
+
             var assignment = _assignmentContext.Assignments.Find(assignmentId);
 
             if (assignment == null)
@@ -86,6 +88,7 @@ namespace CodeJudgeSystemWebApplication.Controllers
                 FileName = model.File.FileName,
                 FileExtention = Path.GetExtension(model.File.FileName),
                 UploadTime = DateTime.Now,
+                AssignmentId = assignmentId
             };
 
             _context.Files.Add(file);

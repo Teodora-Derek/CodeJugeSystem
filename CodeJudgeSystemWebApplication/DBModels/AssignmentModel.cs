@@ -38,6 +38,8 @@ namespace CodeJudgeSystemWebApplication.Models
         [Required]
         public string ExpectedInputAndOutputPairs { get; set; } = string.Empty;
 
+        public List<FileModel> Files { get; set; }
+
     }
 
 }

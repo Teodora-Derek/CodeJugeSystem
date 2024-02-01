@@ -8,6 +8,16 @@ namespace CodeJudgeSystemWebApplication.Models
         public DbSet<FileModel> Files { get; set; }
 
         public FileContext(DbContextOptions<FileContext> options) : base(options)
-        { }
+        {
+        
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FileModel>()
+                .HasOne(f => f.Assignment)
+                .WithMany(a => a.Files)
+                .HasForeignKey(f => f.AssignmentId);
+        }
     }
 }

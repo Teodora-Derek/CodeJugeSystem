@@ -20,5 +20,8 @@ namespace CodeJudgeSystemWebApplication.Models
 
         [Required]
         public DateTime UploadTime { get; set; }
+
+        public int AssignmentId { get; set; }
+        public AssignmentModel Assignment{ get; set; }
     }
 }
