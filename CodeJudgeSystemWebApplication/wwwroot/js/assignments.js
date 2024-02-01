@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function fetchAssignments() {
     document.getElementById('loadingIndicator').style.display = 'block';
 
-    fetch('http://localhost:5026/api/assignments')
+    fetch('https://localhost:7015/api/assignments/')
         .then(response => response.json())
         .then(data => {
             document.getElementById('loadingIndicator').style.display = 'none';
@@ -57,34 +57,25 @@ window.onclick = function (event) {
 };
 
 document.getElementById('createAssignmentForm').onsubmit = function (event) {
+    event.preventDefault();
     submitAssignment();
-    window.location.reload();
 };
 
 function submitAssignment() {
-    const assignmentData = {
-        subject: document.getElementById('subject').value,
-        assignmentName: document.getElementById('assignmentName').value,
-        dueDate: document.getElementById('dueDate').value,
-        course: document.getElementById('course').value,
-        semester: document.getElementById('semester').value,
-        targetGroup: document.getElementById('targetGroup').value,
-        description: document.getElementById('description').value,
-        expectedInputAndOutputPairs: document.getElementById('expectedInputAndOutputPairs').value
-    };
-
-
-    fetch('http://localhost:5026/api/assignments', {
+    fetch('https://localhost:7015/api/assignments/', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(assignmentData),
+        body: new FormData(document.getElementById('createAssignmentForm')),
     })
-        .then(response => response.json())
+        .then(response => {
+            console.log(response);
+            response.json()
+        })
         .then(data => {
             console.log('Success:', data);
             document.getElementById('createAssignmentModal').style.display = 'none';
+        })
+        .then(() => {
+            location.reload();
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -96,7 +87,7 @@ let currentAssignmentId = null;
 function openAssignmentModal(assignmentId) {
     currentAssignmentId = assignmentId;
 
-    fetch(`http://localhost:5026/api/assignments/${assignmentId}`)
+    fetch(`https://localhost:7015/api/assignments/${assignmentId}`)
         .then(response => response.json())
         .then(assignment => {
             document.getElementById('modalSubject').textContent = assignment.subject;
@@ -128,7 +119,7 @@ function deleteAssignment(assignmentId) {
         return;
     }
 
-    fetch(`http://localhost:5026/api/assignments/${assignmentId}`, {
+    fetch(`https://localhost:7015/api/assignments/${assignmentId}`, {
         method: 'DELETE',
     })
         .then(response => {
