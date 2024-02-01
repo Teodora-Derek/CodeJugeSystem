@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function fetchAssignments() {
     document.getElementById('loadingIndicator').style.display = 'block';
 
-    fetch('https://localhost:7015/api/assignments/')
+    fetch('./api/assignments/')
         .then(response => response.json())
         .then(data => {
             document.getElementById('loadingIndicator').style.display = 'none';
@@ -67,7 +67,7 @@ document.getElementById('createAssignmentForm').onsubmit = function (event) {
 };
 
 function submitAssignment() {
-    fetch('https://localhost:7015/api/assignments/', {
+    fetch('./api/assignments/', {
         method: 'POST',
         body: new FormData(document.getElementById('createAssignmentForm')),
     })
@@ -92,7 +92,7 @@ let currentAssignmentId = null;
 function openAssignmentModal(assignmentId) {
     currentAssignmentId = assignmentId;
 
-    fetch(`https://localhost:7015/api/assignments/${assignmentId}`)
+    fetch(`./api/assignments/${assignmentId}`)
         .then(response => response.json())
         .then(assignment => {
             document.getElementById('modalSubject').textContent = assignment.subject;
@@ -127,7 +127,7 @@ function deleteAssignment(assignmentId) {
         return;
     }
 
-    fetch(`https://localhost:7015/api/assignments/${assignmentId}`, {
+    fetch(`./api/assignments/${assignmentId}`, {
         method: 'DELETE',
     })
         .then(response => {
