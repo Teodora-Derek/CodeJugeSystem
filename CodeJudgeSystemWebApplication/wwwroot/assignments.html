@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Code Judge</title>
-    <link href="./css/frontpage.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments</title>
+    <link href="./css/assignments.css" rel="stylesheet" type="text/css">
     <link href="./css/topNav.css" rel="stylesheet" type="text/css">
+    <link href="./css/assignments.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="./Pictures/favicon.png">
-    <script src="./js/frontpage.js"></script>
     <script src="./js/topNav.js" defer></script>
-    <!-- ---------------------------- -->
+
+
     <script type="text/javascript">
         /* <![CDATA[ */
         function addLoadEvent(func) {
@@ -289,6 +291,10 @@
         :where(p.has-text-color:not(.has-link-color)) a {
             color: inherit
         }
+
+        /*        p.has-text-align-left[style*="writing-mode:vertical-lr"], p.has-text-align-right[style*="writing-mode:vertical-rl"] {
+            rotate: 180deg
+        }*/
     </style>
     <style id="wp-block-columns-inline-css">
         .wp-block-columns {
@@ -1996,24 +2002,18 @@
     <meta property="fb:app_id" content="249643311490">
     <meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
     <meta name="twitter:text:title" content="Administration">
-    <meta name="twitter:image" content="https://scontent.fsof9-1.fna.fbcdn.net/v/t39.30808-6/221660435_10158238566320963_2347908023358519758_n.png?_nc_cat=111&amp;ccb=1-7&amp;_nc_sid=3635dc&amp;_nc_ohc=tkR_n4Fg4yIAX9jo7g_&amp;_nc_ht=scontent.fsof9-1.fna&amp;oh=00_AfAhVqsyZq2JabWkXWnp9Rs2eVk-cjIKLvBl0qlLXSoYlQ&amp;oe=6598EBD1&amp;w=144">
     <meta name="twitter:card" content="summary">
 
     <!-- End Jetpack Open Graph Tags -->
-    <link rel="shortcut icon" type="image/x-icon" href="./Pictures/favicon.png" sizes="16x16 24x24 32x32 48x48">
     <link rel="icon" type="image/x-icon" href="./Pictures/favicon.png" sizes="16x16 24x24 32x32 48x48">
     <link rel="apple-touch-icon" href="https://s0.wp.com/i/webclip.png">
     <link rel="search" type="application/opensearchdescription+xml" href="https://codejudgesystem.wordpress.com/osd.xml" title="CodeJudgeSystem">
-    <link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+    <link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="CodeJudgeSystem.com">
     <script type="importmap">{"imports":{"@wordpress\/interactivity":"https:\/\/s0.wp.com\/wp-content\/plugins\/gutenberg-core\/v17.3.1\/build\/interactivity\/index.min.js?ver=17.3.1"}}</script>
     <script type="module" src="https://s0.wp.com/wp-content/plugins/gutenberg-core/v17.3.1/build/interactivity/navigation.min.js?ver=17.3.1" id="@wordpress/block-library/navigation-block"></script>
     <link rel="modulepreload" href="https://s0.wp.com/wp-content/plugins/gutenberg-core/v17.3.1/build/interactivity/index.min.js?ver=17.3.1" id="@wordpress/interactivity">
     <meta name="application-name" content="CodeJudgeSystem">
     <meta name="msapplication-window" content="width=device-width;height=device-height">
-    <meta name="msapplication-task" content="name=Subscribe;action-uri=https://codejudgesystem.wordpress.com/feed/;icon-uri=./Pictures/favicon.png">
-    <meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=./Pictures/favicon.png">
-    <meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=./Pictures/favicon.png">
-    <meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=./Pictures/favicon.png">
     <meta name="description" content="Register a student Please, fill the form below in order to add a new student to the system.">
     <style id="wp-fonts-local">
         @font-face {
@@ -2080,9 +2080,6 @@
             src: url('https://s0.wp.com/wp-content/themes/pub/creatio-2/assets/fonts/inter_normal_400.ttf') format('truetype');
         }
     </style>
-    <script src="https://s0.wp.com/wp-includes/js/wp-emoji-release.min.js?m=1677072837i&amp;ver=6.5-alpha-57144" defer=""></script>
-    <link rel="stylesheet" id="gravatar-card-css" href="https://0.gravatar.com/js/hovercards/hovercards.min.css?ver=202401131f6b765e798866d728f95661b78bbf269c86482ffff0fa8c08e18a1a65cc89">
-    <link href="https://s0.wp.com/wp-content/mu-plugins/actionbar/actionbar.css?v=20231122" type="text/css" rel="stylesheet">
 </head>
 <body>
     <div id="topnav">
@@ -2095,68 +2092,62 @@
         <a href="./sign-up.html">Sign Up</a>
         <a href="./login.html">Login</a>
     </div>
-    <div id="cont">
-        <div id="header">
-            <h1 id="heading" style="text-shadow: 15px 30px yellow"><i>Code Judge</i></h1>
+
+
+
+    <div id="createAssignmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="createAssignmentForm">
+                <h2>Add Assignment</h2>
+                <input type="text" id="subject" name="subject" placeholder="Subject">
+                <input type="text" id="assignmentName" name="assignmentName" placeholder="Assignment Name">
+                <input type="datetime-local" id="dueDate" name="dueDate">
+                <input type="text" id="course" name="course" placeholder="Course">
+                <input type="text" id="semester" name="semester" placeholder="Semester">
+                <input type="text" id="targetGroup" name="targetGroup" placeholder="Target Group">
+                <textarea id="description" name="description" placeholder="Description"></textarea>
+                <input type="text" id="expectedInputAndOutputPairs" name="expectedInputAndOutputPairs" placeholder="Expected Input and Output Pairs">
+                <button type="submit">Submit</button>
+            </form>
         </div>
-        <div id="main">
-            <h2 style="text-shadow: 1px 2px rgba(255, 255, 0, 0.3);"><i>Welcome to Code Judge</i></h2>
-            <p style="color: red"><i>If you are not logged in please do it <a href="./login.html" style="color: aqua">here</a></i></p>
-            <p>You have been given an exercise to work on. To get a grade, copy your code into the specified place below.</p>
-            <p>If you think your knowledge in the subject is not enough, you can check the uploaded materials in <a href="./courses.html" style="color: aqua">courses</a>.</p>
-            <p>If you think there is a mistake grading your code, please contact us <a href="./contact.html" style="color: aqua">here</a>.</p>
-            <div>
-                <p style="color: red"><i>NOTE!</i></p>
-                <p>The system is fully automated, no teacher will check your code.</p>
-            </div>
-            <ul>
-                <li class="listitems">Online course management system</li>
-                <li class="listitems">Personalized learning and teaching experience</li>
-                <li class="listitems">User-friendly interface</li>
-                <li class="listitems">Role-based access control</li>
-                <li class="listitems">Flexible and scalable architecture</li>
-            </ul>
+
+    </div>
+
+    <div class="assignment-container">
+        <div class="header-container">
+            <h1>Assignments</h1>
+            <button id="createAssignmentBtn" class="create-btn">Add Assignment</button>
         </div>
-        <footer class="wp-block-template-part">
-            <p id="reservedRights">&copy; 2023 Code Judge. All rights reserved.</p>
-            <div class="wp-block-group alignfull has-foreground-background-color has-text-color has-background is-layout-flow wp-block-group-is-layout-flow" style="color:#ffffff;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--60)">
-                <div class="wp-block-columns alignwide is-layout-flex wp-container-core-columns-layout-2 wp-block-columns-is-layout-flex">
-                    <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:33.33%">
-                        <h3 class="wp-block-heading has-text-color" style="color:#ffffff;font-size:clamp(22.544px, 1.409rem + ((1vw - 3.2px) * 1.643), 37px);">Contact university</h3>
+        <div id="loadingIndicator" style="display: none;">LOADING...</div>
+        <div id="assignments-grid" class="assignments-grid">
+
+        </div>
+    </div>
 
 
-
-                        <p class="has-text-color" style="color:#ffffff;font-size:clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.455), 18px);">ul. “Professor Georgi Bradistilov” 11, <br>1756 Studentski Kompleks, Sofia</p>
-
-
-
-                        <p class="has-text-color" style="color:#ffffff;font-size:clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.455), 18px);"><br><strong>(+ 359 2) 965 33 03 </strong><br><strong>(+ 359 2) 965 35 46</strong></p>
-
-
-
-                        <ul class="wp-block-social-links has-normal-icon-size margin-bottom-none is-content-justification-left is-layout-flex wp-container-core-social-links-layout-2 wp-block-social-links-is-layout-flex">
-                            <li class="wp-social-link wp-social-link-facebook  wp-block-social-link">
-                                <a href="https://facebook.com/" class="wp-block-social-link-anchor">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                                        <path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"></path>
-                                    </svg><span class="wp-block-social-link-label screen-reader-text">Facebook</span>
-                                </a>
-                            </li>
-
-                            <li class="wp-social-link wp-social-link-instagram  wp-block-social-link">
-                                <a href="https://instagram.com" class="wp-block-social-link-anchor"><svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M12,4.622c2.403,0,2.688,0.009,3.637,0.052c0.877,0.04,1.354,0.187,1.671,0.31c0.42,0.163,0.72,0.358,1.035,0.673 c0.315,0.315,0.51,0.615,0.673,1.035c0.123,0.317,0.27,0.794,0.31,1.671c0.043,0.949,0.052,1.234,0.052,3.637 s-0.009,2.688-0.052,3.637c-0.04,0.877-0.187,1.354-0.31,1.671c-0.163,0.42-0.358,0.72-0.673,1.035 c-0.315,0.315-0.615,0.51-1.035,0.673c-0.317,0.123-0.794,0.27-1.671,0.31c-0.949,0.043-1.233,0.052-3.637,0.052 s-2.688-0.009-3.637-0.052c-0.877-0.04-1.354-0.187-1.671-0.31c-0.42-0.163-0.72-0.358-1.035-0.673 c-0.315-0.315-0.51-0.615-0.673-1.035c-0.123-0.317-0.27-0.794-0.31-1.671C4.631,14.688,4.622,14.403,4.622,12 s0.009-2.688,0.052-3.637c0.04-0.877,0.187-1.354,0.31-1.671c0.163-0.42,0.358-0.72,0.673-1.035 c0.315-0.315,0.615-0.51,1.035-0.673c0.317-0.123,0.794-0.27,1.671-0.31C9.312,4.631,9.597,4.622,12,4.622 M12,3 C9.556,3,9.249,3.01,8.289,3.054C7.331,3.098,6.677,3.25,6.105,3.472C5.513,3.702,5.011,4.01,4.511,4.511 c-0.5,0.5-0.808,1.002-1.038,1.594C3.25,6.677,3.098,7.331,3.054,8.289C3.01,9.249,3,9.556,3,12c0,2.444,0.01,2.751,0.054,3.711 c0.044,0.958,0.196,1.612,0.418,2.185c0.23,0.592,0.538,1.094,1.038,1.594c0.5,0.5,1.002,0.808,1.594,1.038 c0.572,0.222,1.227,0.375,2.185,0.418C9.249,20.99,9.556,21,12,21s2.751-0.01,3.711-0.054c0.958-0.044,1.612-0.196,2.185-0.418 c0.592-0.23,1.094-0.538,1.594-1.038c0.5-0.5,0.808-1.002,1.038-1.594c0.222-0.572,0.375-1.227,0.418-2.185 C20.99,14.751,21,14.444,21,12s-0.01-2.751-0.054-3.711c-0.044-0.958-0.196-1.612-0.418-2.185c-0.23-0.592-0.538-1.094-1.038-1.594 c-0.5-0.5-1.002-0.808-1.594-1.038c-0.572-0.222-1.227-0.375-2.185-0.418C14.751,3.01,14.444,3,12,3L12,3z M12,7.378 c-2.552,0-4.622,2.069-4.622,4.622S9.448,16.622,12,16.622s4.622-2.069,4.622-4.622S14.552,7.378,12,7.378z M12,15 c-1.657,0-3-1.343-3-3s1.343-3,3-3s3,1.343,3,3S13.657,15,12,15z M16.804,6.116c-0.596,0-1.08,0.484-1.08,1.08 s0.484,1.08,1.08,1.08c0.596,0,1.08-0.484,1.08-1.08S17.401,6.116,16.804,6.116z"></path></svg><span class="wp-block-social-link-label screen-reader-text">Instagram</span></a>
-                            </li>
-
-                            <li class="wp-social-link wp-social-link-youtube  wp-block-social-link">
-                                <a href="https://youtube.com" class="wp-block-social-link-anchor"><svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M21.8,8.001c0,0-0.195-1.378-0.795-1.985c-0.76-0.797-1.613-0.801-2.004-0.847c-2.799-0.202-6.997-0.202-6.997-0.202 h-0.009c0,0-4.198,0-6.997,0.202C4.608,5.216,3.756,5.22,2.995,6.016C2.395,6.623,2.2,8.001,2.2,8.001S2,9.62,2,11.238v1.517 c0,1.618,0.2,3.237,0.2,3.237s0.195,1.378,0.795,1.985c0.761,0.797,1.76,0.771,2.205,0.855c1.6,0.153,6.8,0.201,6.8,0.201 s4.203-0.006,7.001-0.209c0.391-0.047,1.243-0.051,2.004-0.847c0.6-0.607,0.795-1.985,0.795-1.985s0.2-1.618,0.2-3.237v-1.517 C22,9.62,21.8,8.001,21.8,8.001z M9.935,14.594l-0.001-5.62l5.404,2.82L9.935,14.594z"></path></svg><span class="wp-block-social-link-label screen-reader-text">YouTube</span></a>
-                            </li>
-                        </ul>
-
-                        <p class="margin-top-half has-text-color has-link-color wp-elements-811a360cf2974357a75229d9a546f37f" style="color:#ffffff;font-size:clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.455), 18px);"><a href="mailto:info@tu-sofia.bg">info@tu-sofia.bg</a><br><a href="mailto:codeJudgeSystem@gmail.com">codeJudgeSystem@gmail.com</a></p>
-                    </div>
+    <div id="assignmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAssignmentModal()">&times;</span>
+            <h2>Assignment Details</h2>
+            <div id="assignmentInfo">
+                <p>Subject: <span id="modalSubject"></span></p>
+                <p>Assignment Name: <span id="modalAssignmentName"></span></p>
+                <p>Due Date: <span id="modalDueDate"></span></p>
+                <p>Course: <span id="modalCourse"></span></p>
+                <p>Semester: <span id="modalSemester"></span></p>
+                <p>Target Group: <span id="modalTargetGroup"></span></p>
+                <p>Description: <span id="modalDescription"></span></p>
+                <p>Expected Input and Output: <span id="modalExpectedInputAndOutputPairs"></span></p>
+                <div class="button-container-modal">
+                    <button onclick="editAssignment(currentAssignmentId)" class="edit">Edit</button>
+                    <button onclick="deleteAssignment(currentAssignmentId)" class="delete">Delete</button>
                 </div>
             </div>
-        </footer>
     </div>
+
+    <script src="js/assignments.js"></script>
 </body>
+</body>
+
 </html>
