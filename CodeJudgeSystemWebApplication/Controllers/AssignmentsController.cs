@@ -30,7 +30,7 @@ namespace CodeJudgeSystemWebApplication.Controllers
         }
 
         [HttpPost]
-        public void AddAssignment(AssignmentDTO assignmentDTO)
+        public void AddAssignment([FromForm] AssignmentDTO assignmentDTO)
         {
             AssignmentModel assignment = new AssignmentModel
             {

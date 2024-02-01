@@ -23,5 +23,7 @@ namespace CodeJudgeSystemWebApplication.Models
 
         public int AssignmentId { get; set; }
         public AssignmentModel Assignment{ get; set; }
+
+        public int Grade { get; set; }
     }
 }

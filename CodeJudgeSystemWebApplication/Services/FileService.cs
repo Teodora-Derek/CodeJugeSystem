@@ -38,7 +38,7 @@ public class FileService : IFileService
         var keyValuePairs = pairs
             .Select(pair =>
             {
-                var parts = pair.Split('-');
+                var parts = pair.Split(':');
                 return new KeyValuePair<string, string>(parts[0], parts[1]);
             })
             .ToList();

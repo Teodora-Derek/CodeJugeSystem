@@ -45,7 +45,7 @@ const removeFile = () => {
 
 
 const uploadFilesUrl = 'api/Files/upload';
-const getFilesUrl = 'api/Files/';
+const getFilesUrl = 'api/files?assignmentId=${assignmentId}';
 
 const uploadFiles = () => {
     const file = input.files[0];
@@ -72,26 +72,37 @@ const uploadFiles = () => {
         .then(data => {
             console.log('File uploaded successfully!', data);
             updateHistory();
-            showGrade(data);
+            updateGrade(data);
         })
         .catch(error => {
             console.error('Error during file upload:', error);
         });
 }
 
-function showGrade(data) {
+function updateGrade(data) {
     const gradeElement = document.querySelector('.grade h2');
-    gradeElement.textContent = `Grade: ${data}`;
+    gradeElement.textContent = `Final grade: ${data}`;
+}
+
+const showGrade = async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const assignmentId = urlParams.get('assignmentId');
+    const response = await fetch(`api/files/grade?assignmentId=${assignmentId}`);
+    const gradeData = await response.text();
+    console.log(gradeData)
+    updateGrade(gradeData);
 }
 
 const updateHistory = async () => {
 
     const historyContent = document.getElementById('historyContent');
+    const urlParams = new URLSearchParams(window.location.search);
+    const assignmentId = urlParams.get('assignmentId');
     const SUBMISSIONS_SHOWN = 10;
 
     try {
         historyContent.innerHTML = "";
-        const response = await fetch(getFilesUrl);
+        const response = await fetch(`api/files?assignmentId=${assignmentId}`);
         const result = await response.json();
 
         result.sort((a, b) => new Date(b.uploadTime) - new Date(a.uploadTime));
@@ -111,3 +122,5 @@ const updateHistory = async () => {
 }
 
 window.addEventListener('load', updateHistory);
+
+window.addEventListener('load', showGrade);
