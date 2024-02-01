@@ -82,6 +82,20 @@ span {
     opacity: 0.8;
 }
 
+.submitCodeBtn {
+    background-color: forestgreen;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submitCodeBtn:hover {
+    opacity: 0.8;
+}
+
 
 .modal {
     display: none;
