@@ -3,16 +3,19 @@ using System;
 using CodeJudgeSystemWebApplication.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CodeJudgeSystemWebApplication.Migrations.File
+namespace CodeJudgeSystemWebApplication.Migrations.Assignment
 {
-    [DbContext(typeof(FileContext))]
-    partial class FileContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AssignmentContext))]
+    [Migration("20240131184727_UpdateFileAssignment")]
+    partial class UpdateFileAssignment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,7 +61,7 @@ namespace CodeJudgeSystemWebApplication.Migrations.File
 
                     b.HasKey("Id");
 
-                    b.ToTable("AssignmentModel");
+                    b.ToTable("Assignments");
                 });
 
             modelBuilder.Entity("CodeJudgeSystemWebApplication.Models.FileModel", b =>
@@ -78,9 +81,6 @@ namespace CodeJudgeSystemWebApplication.Migrations.File
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Grade")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("UploadTime")
                         .HasColumnType("datetime");
 
@@ -88,7 +88,7 @@ namespace CodeJudgeSystemWebApplication.Migrations.File
 
                     b.HasIndex("AssignmentId");
 
-                    b.ToTable("Files");
+                    b.ToTable("FileModel");
                 });
 
             modelBuilder.Entity("CodeJudgeSystemWebApplication.Models.FileModel", b =>

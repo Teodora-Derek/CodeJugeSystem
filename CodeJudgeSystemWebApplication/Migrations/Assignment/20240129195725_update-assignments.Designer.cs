@@ -3,16 +3,19 @@ using System;
 using CodeJudgeSystemWebApplication.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CodeJudgeSystemWebApplication.Migrations.File
+namespace CodeJudgeSystemWebApplication.Migrations.Assignment
 {
-    [DbContext(typeof(FileContext))]
-    partial class FileContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AssignmentContext))]
+    [Migration("20240129195725_update-assignments")]
+    partial class UpdateAssignments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,53 +61,7 @@ namespace CodeJudgeSystemWebApplication.Migrations.File
 
                     b.HasKey("Id");
 
-                    b.ToTable("AssignmentModel");
-                });
-
-            modelBuilder.Entity("CodeJudgeSystemWebApplication.Models.FileModel", b =>
-                {
-                    b.Property<int>("FileID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("AssignmentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FileExtention")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("Grade")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UploadTime")
-                        .HasColumnType("datetime");
-
-                    b.HasKey("FileID");
-
-                    b.HasIndex("AssignmentId");
-
-                    b.ToTable("Files");
-                });
-
-            modelBuilder.Entity("CodeJudgeSystemWebApplication.Models.FileModel", b =>
-                {
-                    b.HasOne("CodeJudgeSystemWebApplication.Models.AssignmentModel", "Assignment")
-                        .WithMany("Files")
-                        .HasForeignKey("AssignmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Assignment");
-                });
-
-            modelBuilder.Entity("CodeJudgeSystemWebApplication.Models.AssignmentModel", b =>
-                {
-                    b.Navigation("Files");
+                    b.ToTable("Assignments");
                 });
 #pragma warning restore 612, 618
         }

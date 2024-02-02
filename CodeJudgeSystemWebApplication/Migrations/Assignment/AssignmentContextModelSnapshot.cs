@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CodeJudgeSystemWebApplication.Migrations.File
+namespace CodeJudgeSystemWebApplication.Migrations.Assignment
 {
-    [DbContext(typeof(FileContext))]
-    partial class FileContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AssignmentContext))]
+    partial class AssignmentContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -58,7 +58,7 @@ namespace CodeJudgeSystemWebApplication.Migrations.File
 
                     b.HasKey("Id");
 
-                    b.ToTable("AssignmentModel");
+                    b.ToTable("Assignments");
                 });
 
             modelBuilder.Entity("CodeJudgeSystemWebApplication.Models.FileModel", b =>
@@ -78,9 +78,6 @@ namespace CodeJudgeSystemWebApplication.Migrations.File
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Grade")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("UploadTime")
                         .HasColumnType("datetime");
 
@@ -88,7 +85,7 @@ namespace CodeJudgeSystemWebApplication.Migrations.File
 
                     b.HasIndex("AssignmentId");
 
-                    b.ToTable("Files");
+                    b.ToTable("FileModel");
                 });
 
             modelBuilder.Entity("CodeJudgeSystemWebApplication.Models.FileModel", b =>

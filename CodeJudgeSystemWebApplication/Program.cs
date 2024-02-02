@@ -18,6 +18,9 @@ builder.Services.AddDbContextPool<StudentContext>(
 builder.Services.AddDbContextPool<FileContext>(
         options => options.UseMySql(connetionString, ServerVersion.AutoDetect(connetionString)));
 
+builder.Services.AddDbContextPool<AssignmentContext>(
+        options => options.UseMySql(connetionString, ServerVersion.AutoDetect(connetionString)));
+
 builder.Services.AddSingleton<IFileService, FileService>();
 
 // Options patern?

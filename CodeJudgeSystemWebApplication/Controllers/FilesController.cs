@@ -1,19 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CodeJudgeSystemWebApplication.AppModels;
 using CodeJudgeSystemWebApplication.Models;
+using CodeJudgeSystemWebApplication.Options;
+using CodeJudgeSystemWebApplication.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using CodeJudgeSystemWebApplication.Options;
-using System.IO.Compression;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.Emit;
-using Microsoft.CodeAnalysis;
-using System.Diagnostics;
-using System.Reflection;
-using Microsoft.CodeAnalysis.Text;
-using System.IO;
-using CodeJudgeSystemWebApplication.Services;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using CodeJudgeSystemWebApplication.AppModels;
+using Microsoft.IdentityModel.Tokens;
 
 namespace CodeJudgeSystemWebApplication.Controllers
 {
@@ -22,77 +15,110 @@ namespace CodeJudgeSystemWebApplication.Controllers
     public class FilesController : ControllerBase
     {
         private readonly FileContext _context;
+        private readonly AssignmentContext _assignmentContext;
         private readonly IFileService _fileService;
 
-        public FilesController(FileContext context, IFileService fileService)
+        public FilesController(FileContext context, AssignmentContext assignmentContext, IFileService fileService)
         {
+            _assignmentContext = assignmentContext;
             _context = context;
             _fileService = fileService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FileModel>>> GetFiles()
+        public async Task<ActionResult<IEnumerable<FileModel>>> GetFiles([FromQuery] int assignmentId)
         {
-            return await _context.Files.ToListAsync();
+            return await _context.Files
+                .Where(f => f.AssignmentId == assignmentId).ToListAsync();
         }
 
-        [HttpGet("{fileId}")]
-        public IActionResult GetFile(int fileId)
+        [HttpGet("{grade}")]
+        public async Task<ActionResult<string>> GetFinalGrade([FromQuery] int assignmentId)
         {
-            var file = _context.Files.Find(fileId);
+            var grade = 2;
 
-            if (file is null)
+            string defaultGradeMessage = "N/A";
+
+            var allAssignmentGrades = await _context.Files
+                .Where(f => f.AssignmentId == assignmentId).Select(f => f.Grade).ToListAsync();
+
+            if (allAssignmentGrades.IsNullOrEmpty())
             {
-                return NotFound();
+                return Ok(defaultGradeMessage);
             }
 
-            return Ok(new
+            foreach (var g in allAssignmentGrades)
             {
-                FileName = file.FileName,
-                FileExtention = file.FileExtention,
-                UploadTime = file.UploadTime
-            });
-
-            /*byte[]? fileData = file.FileData;
-            if (fileData == null)
-            {
-                return BadRequest("Files data is empty!");
+                if (g > grade)
+                    grade = g;
             }
-            var base64EncodedData = Convert.ToBase64String(fileData);
 
-            return Ok(new
-            {
-                FileName = file.FileName,
-                FileType = file.FileExtention,
-                FileData = base64EncodedData,
-                UploadTime = file.UploadTime
-            });*/
+            return Ok(grade.ToString());
+
         }
+
 
         [HttpPost("upload")]
-        public async Task<IActionResult> Upload(IOptions<AppOptions> optAppOptions, [FromForm] FileModelDTO model)
+        public async Task<IActionResult> Upload(IOptions<AppOptions> optAppOptions, [FromForm] FileModelDTO model, [FromQuery] int assignmentId)
         {
-            var file = new FileModel
+            try
             {
-                FileName = model.File.FileName,
-                FileExtention = Path.GetExtension(model.File.FileName),
-                UploadTime = DateTime.Now,
-            };
+                var assignment = _assignmentContext.Assignments.Find(assignmentId);
 
-            _context.Files.Add(file);
-            await _context.SaveChangesAsync();
+                if (assignment == null)
+                    return BadRequest("Invalid Assignment");
 
-            var fileUploadResult = await Task.Run(() => _fileService.RunFileDynamically(model.File));
-            var fileSaveResult = await _fileService.SaveFileInFileSystemAsync(optAppOptions.Value.UnzipFolderPath, model.File);
+                List<KeyValuePair<string, string>> inputAndOutputPairs = new List<KeyValuePair<string, string>>();
 
-            if (fileUploadResult.IsSuccessful && fileSaveResult)
-                return Ok(fileUploadResult.Result);
+                try
+                {
+                    inputAndOutputPairs = _fileService.ConvertToInputAndOutput(assignment.ExpectedInputAndOutputPairs);
+                }
+                catch (Exception)
+                {
+                    return BadRequest("The input-output is in invalid format");
+                }
+                var grade = 2;
 
-            var problem = ((object?)fileUploadResult.Diagnostics
-                    ?? fileUploadResult.Exception)
-                    ?? fileUploadResult.Error;
+                foreach (var iopair in inputAndOutputPairs)
+                {
+                    var fileUploadResult = await Task.Run(() => _fileService.RunFileDynamically(model.File, iopair.Key));
 
-            return BadRequest(problem);
+                    if (fileUploadResult.ToLower() == iopair.Value.ToLower())
+                    {
+                        grade++;
+                    }
+                }
+
+                var fileSaveResult = await _fileService.SaveFileInFileSystemAsync(optAppOptions.Value.UnzipFolderPath, model.File);
+
+                var file = new FileModel
+                {
+                    FileName = model.File.FileName,
+                    FileExtention = Path.GetExtension(model.File.FileName),
+                    UploadTime = DateTime.Now,
+                    AssignmentId = assignmentId,
+                    Grade = grade
+                };
+
+                var allAssignmentGrades = await _context.Files
+                    .Where(f => f.AssignmentId == assignmentId).Select(f => f.Grade).ToListAsync();
+
+                foreach (var g in allAssignmentGrades)
+                {
+                    if (g > grade)
+                        grade = g;
+                }
+
+                _context.Files.Add(file);
+                await _context.SaveChangesAsync();
+
+                return Ok(grade);
+            }
+            catch (Exception)
+            {
+                return BadRequest("There was an error while attempting to upload the file");
+            }
         }
     }
 }
