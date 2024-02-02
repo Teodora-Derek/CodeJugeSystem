@@ -1,5 +1,6 @@
 ﻿using CodeJudgeSystemWebApplication.AppModels;
 using CodeJudgeSystemWebApplication.Models;
+using CodeJudgeSystemWebApplication.Services;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -11,9 +12,12 @@ namespace CodeJudgeSystemWebApplication.Controllers
     {
         private readonly AssignmentContext _context;
 
-        public AssignmentsController(AssignmentContext context)
+        private readonly IFileService _fileService;
+
+        public AssignmentsController(AssignmentContext context, IFileService fileService)
         {
             _context = context;
+            _fileService = fileService;
         }
 
 
@@ -30,41 +34,85 @@ namespace CodeJudgeSystemWebApplication.Controllers
         }
 
         [HttpPost]
-        public void AddAssignment([FromForm] AssignmentDTO assignmentDTO)
+        public IActionResult AddAssignment([FromForm] AssignmentDTO assignmentDTO)
         {
-            AssignmentModel assignment = new AssignmentModel
+            try
             {
-                Subject = assignmentDTO.Subject,
-                AssignmentName = assignmentDTO.AssignmentName,
-                DueDate = assignmentDTO.DueDate,
-                Course = assignmentDTO.Course,
-                Semester = assignmentDTO.Semester,
-                TargetGroup = assignmentDTO.TargetGroup,
-                Description = assignmentDTO.Description,
-                ExpectedInputAndOutputPairs = assignmentDTO.ExpectedInputAndOutputPairs,
+                try
+                {
+                   var pairs = _fileService.ConvertToInputAndOutput(assignmentDTO.ExpectedInputAndOutputPairs);
+                   if(pairs.Count != 4)
+                    {
+                        throw new Exception("The pairs have to be exactly 4");
+                    }    
+                }
+                catch (Exception)
+                {
+                    return BadRequest("The ExpectedInputAndOutputPairs are not in a valid format");
+                }
 
-            };
-            _context.Assignments.Add(assignment);
-            _context.SaveChanges();
+                AssignmentModel assignment = new AssignmentModel
+                {
+                    Subject = assignmentDTO.Subject,
+                    AssignmentName = assignmentDTO.AssignmentName,
+                    DueDate = assignmentDTO.DueDate,
+                    Course = assignmentDTO.Course,
+                    Semester = assignmentDTO.Semester,
+                    TargetGroup = assignmentDTO.TargetGroup,
+                    Description = assignmentDTO.Description,
+                    ExpectedInputAndOutputPairs = assignmentDTO.ExpectedInputAndOutputPairs,
+
+                };
+                _context.Assignments.Add(assignment);
+                _context.SaveChanges();
+
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return BadRequest("There was an error trying to add a new assignment");
+            }
         }
 
         [HttpPut]
-        public void UpdateAssignment(AssignmentDTO updatedAssignmentDTO)
+        public IActionResult UpdateAssignment(AssignmentDTO updatedAssignmentDTO)
         {
-            var existingAssignment = _context.Assignments.Find(updatedAssignmentDTO.Id);
-
-            if (existingAssignment != null)
+            try
             {
-                existingAssignment.Subject = updatedAssignmentDTO.Subject;
-                existingAssignment.AssignmentName = updatedAssignmentDTO.AssignmentName;
-                existingAssignment.DueDate = updatedAssignmentDTO.DueDate;
-                existingAssignment.Course = updatedAssignmentDTO.Course;
-                existingAssignment.Semester = updatedAssignmentDTO.Semester;
-                existingAssignment.TargetGroup = updatedAssignmentDTO.TargetGroup;
-                existingAssignment.Description = updatedAssignmentDTO.Description;
-                existingAssignment.ExpectedInputAndOutputPairs = updatedAssignmentDTO.ExpectedInputAndOutputPairs;
+                var existingAssignment = _context.Assignments.Find(updatedAssignmentDTO.Id);
 
-                _context.SaveChanges();
+                try
+                {
+                    var pairs = _fileService.ConvertToInputAndOutput(updatedAssignmentDTO.ExpectedInputAndOutputPairs);
+                    if (pairs.Count != 4)
+                    {
+                        throw new Exception("The pairs have to be exactly 4");
+                    }
+                }
+                catch (Exception)
+                {
+                    return BadRequest("The ExpectedInputAndOutputPairs are not in a valid format");
+                }
+
+                if (existingAssignment != null)
+                {
+                    existingAssignment.Subject = updatedAssignmentDTO.Subject;
+                    existingAssignment.AssignmentName = updatedAssignmentDTO.AssignmentName;
+                    existingAssignment.DueDate = updatedAssignmentDTO.DueDate;
+                    existingAssignment.Course = updatedAssignmentDTO.Course;
+                    existingAssignment.Semester = updatedAssignmentDTO.Semester;
+                    existingAssignment.TargetGroup = updatedAssignmentDTO.TargetGroup;
+                    existingAssignment.Description = updatedAssignmentDTO.Description;
+                    existingAssignment.ExpectedInputAndOutputPairs = updatedAssignmentDTO.ExpectedInputAndOutputPairs;
+
+                    _context.SaveChanges();
+                }
+
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return BadRequest("There was an error trying to update the assignment");
             }
         }
 
