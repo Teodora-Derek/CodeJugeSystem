@@ -61,50 +61,64 @@ namespace CodeJudgeSystemWebApplication.Controllers
         [HttpPost("upload")]
         public async Task<IActionResult> Upload(IOptions<AppOptions> optAppOptions, [FromForm] FileModelDTO model, [FromQuery] int assignmentId)
         {
-
-            var assignment = _assignmentContext.Assignments.Find(assignmentId);
-
-            if (assignment == null)
-                return BadRequest();
-
-            List<KeyValuePair<string, string>> inputAndOutputPairs = _fileService.ConvertToInputAndOutput(assignment.ExpectedInputAndOutputPairs);
-
-            var grade = 2;
-
-            foreach (var iopair in inputAndOutputPairs)
+            try
             {
-                var fileUploadResult = await Task.Run(() => _fileService.RunFileDynamically(model.File, iopair.Key));
+                var assignment = _assignmentContext.Assignments.Find(assignmentId);
 
-                if (fileUploadResult.ToLower() == iopair.Value.ToLower())
+                if (assignment == null)
+                    return BadRequest("Invalid Assignment");
+
+                List<KeyValuePair<string, string>> inputAndOutputPairs = new List<KeyValuePair<string, string>>();
+
+                try
                 {
-                    grade++;
+                    inputAndOutputPairs = _fileService.ConvertToInputAndOutput(assignment.ExpectedInputAndOutputPairs);
                 }
+                catch (Exception)
+                {
+                    return BadRequest("The input-output is in invalid format");
+                }
+                var grade = 2;
+
+                foreach (var iopair in inputAndOutputPairs)
+                {
+                    var fileUploadResult = await Task.Run(() => _fileService.RunFileDynamically(model.File, iopair.Key));
+
+                    if (fileUploadResult.ToLower() == iopair.Value.ToLower())
+                    {
+                        grade++;
+                    }
+                }
+
+                var fileSaveResult = await _fileService.SaveFileInFileSystemAsync(optAppOptions.Value.UnzipFolderPath, model.File);
+
+                var file = new FileModel
+                {
+                    FileName = model.File.FileName,
+                    FileExtention = Path.GetExtension(model.File.FileName),
+                    UploadTime = DateTime.Now,
+                    AssignmentId = assignmentId,
+                    Grade = grade
+                };
+
+                var allAssignmentGrades = await _context.Files
+                    .Where(f => f.AssignmentId == assignmentId).Select(f => f.Grade).ToListAsync();
+
+                foreach (var g in allAssignmentGrades)
+                {
+                    if (g > grade)
+                        grade = g;
+                }
+
+                _context.Files.Add(file);
+                await _context.SaveChangesAsync();
+
+                return Ok(grade);
             }
-
-            var fileSaveResult = await _fileService.SaveFileInFileSystemAsync(optAppOptions.Value.UnzipFolderPath, model.File);
-
-            var file = new FileModel
+            catch (Exception)
             {
-                FileName = model.File.FileName,
-                FileExtention = Path.GetExtension(model.File.FileName),
-                UploadTime = DateTime.Now,
-                AssignmentId = assignmentId,
-                Grade = grade
-            };
-
-            var allAssignmentGrades = await _context.Files
-                .Where(f => f.AssignmentId == assignmentId).Select(f => f.Grade).ToListAsync();
-
-            foreach (var g in allAssignmentGrades)
-            {
-                if (g > grade)
-                    grade = g;
+                return BadRequest("There was an error while attempting to upload the file");
             }
-
-            _context.Files.Add(file);
-            await _context.SaveChangesAsync();
-
-            return Ok(grade);
         }
     }
 }
