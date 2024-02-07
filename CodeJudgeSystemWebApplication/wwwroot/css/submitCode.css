@@ -18,37 +18,37 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-    .upload-form label {
-        display: block;
-        font-weight: bold;
-    }
+.upload-form label {
+    display: block;
+    font-weight: bold;
+}
 
-    .upload-form input[type="file"] {
-        text-align: center;
-        padding: 10px;
-        margin-bottom: 20px;
-        margin-left: 25px;
-        margin-top: 20px;
-        box-sizing: border-box;
-    }
+.upload-form input[type="file"] {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
 
-    .upload-form button {
-        background-color: lightgoldenrodyellow;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+.upload-form button {
+    background-color: lightgoldenrodyellow;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-    #uploadButton {
-        background-color: #4caf50;
-        color: #fff;
-    }
+#uploadButton {
+    background-color: #4caf50;
+    color: #fff;
+}
 
-        .upload-form button:hover {
-            background-color: #45a049;
-        }
+.upload-form button:hover {
+    background-color: #45a049;
+}
 
 #selected-files {
     margin-top: 10px;
