@@ -34,6 +34,4 @@ async function fetchAndDisplayPDFs() {
         }
     }
 }
-
-// Call the function to fetch and display PDFs when the script is executed
 fetchAndDisplayPDFs();

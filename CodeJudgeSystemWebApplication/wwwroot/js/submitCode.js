@@ -1,6 +1,5 @@
 ﻿const input = document.getElementById('file-input');
 const fileName = document.createElement('p');
-
 const updateFilePreview = () => {
     const file = input.files[0];
 
@@ -17,12 +16,8 @@ const removeFile = () => {
         input.textContent = 'No file selected';
     }
 }
-
-/*-------------------- User side(top) / Server side(bottom) -------------------*/
-
 const uploadFilesUrl = 'api/Files/upload';
 const getFilesUrl = 'api/Files/';
-
 const uploadFiles = () => {
     const file = input.files[0];
     if (!file) {
@@ -75,5 +70,4 @@ const updateHistory = async () => {
         console.log("Error:", error);
     }
 }
-
 window.addEventListener('load', updateHistory);

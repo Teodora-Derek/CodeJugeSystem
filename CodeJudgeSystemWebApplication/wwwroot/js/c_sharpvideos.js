@@ -1,5 +1,3 @@
-// c_sharp-videos.js
-
 async function fetchAndDisplayVideos() {
     const videoUrls = [
         "./Videos/c_sharp-video-1.mp4",
@@ -41,6 +39,4 @@ async function fetchAndDisplayVideos() {
         }
     }
 }
-
-// Call the function to fetch and display videos when the script is executed
 fetchAndDisplayVideos();
