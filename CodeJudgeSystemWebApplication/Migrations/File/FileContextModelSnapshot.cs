@@ -34,7 +34,7 @@ namespace CodeJudgeSystemWebApplication.Migrations.File
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("UploadTime")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime");
 
                     b.HasKey("FileID");
 

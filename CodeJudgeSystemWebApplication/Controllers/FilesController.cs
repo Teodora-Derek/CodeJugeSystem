@@ -12,7 +12,6 @@ using System.Reflection;
 using Microsoft.CodeAnalysis.Text;
 using System.IO;
 using CodeJudgeSystemWebApplication.Services;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using CodeJudgeSystemWebApplication.AppModels;
 
 namespace CodeJudgeSystemWebApplication.Controllers
