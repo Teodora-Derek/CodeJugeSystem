@@ -11,8 +11,10 @@ namespace CodeJudgeSystemWebApplication.Services;
 
 public interface IFileService
 {
-    FileUploadResult RunFileDynamically(IFormFile file);
+    string RunFileDynamically(IFormFile file,string input);
     Task<bool> SaveFileInFileSystemAsync(string unzipFolderPath, IFormFile file);
+
+    List<KeyValuePair<string, string>> ConvertToInputAndOutput(string input);
 }
 
 public class FileService : IFileService
@@ -29,7 +31,22 @@ public class FileService : IFileService
             .ToList();
     }
 
-    public FileUploadResult RunFileDynamically(IFormFile file)
+    public List<KeyValuePair<string, string>> ConvertToInputAndOutput(string input)
+    {
+        var pairs = input.Split(',');
+
+        var keyValuePairs = pairs
+            .Select(pair =>
+            {
+                var parts = pair.Split('-');
+                return new KeyValuePair<string, string>(parts[0], parts[1]);
+            })
+            .ToList();
+
+        return keyValuePairs;
+    }
+
+    public string RunFileDynamically(IFormFile file, string input)
     {
         var syntaxTrees = new List<SyntaxTree>();
         var options = new CSharpCompilationOptions(OutputKind.ConsoleApplication);
@@ -57,16 +74,16 @@ public class FileService : IFileService
         {
             EmitResult result = compilation.Emit(streamIL);
 
-            if (!result.Success)
-                return FileUploadResult.FromDiagnostics(result.Diagnostics);
+            //if (!result.Success)
+            //    //return FileUploadResult.FromDiagnostics(result.Diagnostics);
 
             assembly = Assembly.Load(streamIL.ToArray());
         }
 
         var entryPoint = assembly.EntryPoint;
 
-        if (entryPoint is null)
-            return FileUploadResult.FromError($"{assembly.EntryPoint} was null");
+        //if (entryPoint is null)
+        //    //return FileUploadResult.FromError($"{assembly.EntryPoint} was null");
 
         string output;
         var stdOut = Console.Out;
@@ -76,18 +93,19 @@ public class FileService : IFileService
 
             try
             {
-                entryPoint.Invoke(null, null);
+                entryPoint.Invoke(null, new object[] { new string[] { input } });
             }
             catch (Exception e)
             {
-                return FileUploadResult.FromException(e);
+                throw;
+                //return FileUploadResult.FromException(e);
             }
 
             output = consoleOutput.ToString();
         }
 
         Console.SetOut(stdOut);
-        return FileUploadResult.FromResult(output);
+        return output.TrimEnd('\r', '\n');
     }
 
     public async Task<bool> SaveFileInFileSystemAsync(string unzipFolderPath, IFormFile file)
